@@ -1,0 +1,70 @@
+{% extends 'report/base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <form class="form" onsubmit='return formsubmit();'>
+                    <h1>최저임금 미준수</h1>
+                    <div class="form-group">
+                        <label for="name">(1) 이름 </label>
+                        <input class="form-control input-lg" id="name" type="text" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="service_period">(2) 근무지(지역 + 상호명) ex.신촌명물거리 알촌 </label>
+                        <input class="form-control input-lg" id="place" type="text" placeholder="Place">
+                    </div>
+                    <div class="form-group">
+                        <label> (3) 근무기간 </label>
+                        <input type='text' class='form-control input-lg' name='daterange'>
+                    </div>
+                    <div class="form-group">
+                        <label for="service_period">(4) 전체 시간 </label>
+                        <input class="form-control input-lg" id="total_time" type="text" placeholder="Time">
+                    </div>
+                    <div class="form-group">
+                        <label for="service_period">(5) 받은 액수 </label>
+                        <input class="form-control input-lg" id="take" type="text" placeholder="Money">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary btn-lg" value="submit"/>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var start;
+        var end;
+        $(function () {
+            $('input[name=daterange]').daterangepicker({},
+                function (_start, _end, label) {
+                    var format = 'YYYY년 M월 D일';
+                    start = _start.format(format);
+                    end = _end.format(format);
+                });
+        });
+        function formsubmit() {
+            var name = document.getElementById('name').value;
+            var place = document.getElementById('place').value;
+            var total_time = document.getElementById('total_time').value;
+            var take = document.getElementById('take').value;
+            var pay = total_time * 6030;
+            var total_pay = pay - take;
+            var text = '제 이름은 name입니다.' +
+                '저는 place에서 start부터 end까지 일을 했습니다.' +
+                '총 total_time 시간을 일했으며 최저 임금 6,030원이므로 pay 원을 받야아 합니다.' +
+                '그런데 제가 받은 액수는 총 take원입니다.' +
+                '따라서 total_pay원을 place으로부터 받을 수 있도록 선처해주세요.';
+            text = text.replace(/start/g, start);
+            text = text.replace(/end/g, end);
+            text = text.replace(/name/g, name);
+            text = text.replace(/place/g, place);
+            text = text.replace(/total_time/g, total_time);
+            text = text.replace(/take/g, take);
+            text = text.replace(/pay/g, pay);
+            text = text.replace(/total_pay/g, total_pay);
+            alert(text);
+            return false;
+        }
+    </script>
+{% endblock %}

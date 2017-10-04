@@ -1,0 +1,13 @@
+{% extends 'report/base.html' %}
+
+{% block content %}
+    {% for report in reports %}
+        <div>
+            <div class="date">
+                {{ report }}
+            </div>
+            <h1><a href="#">{{ report.title }}</a></h1>
+            <p>{{ report.text|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
