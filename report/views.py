@@ -5,6 +5,14 @@ from .models import Report
 
 
 # Create your views here.
+def index(request):
+    return render(request, 'report/index.html')
+
+
+def about(request):
+    return render(request, 'report/info_aboutus.html')
+
+
 def report_list(request):
     # reports = Report.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     reports = Report.objects.all()
@@ -13,3 +21,5 @@ def report_list(request):
 
 def report_wage(request):
     return render(request, 'report/report_minimum_wage.html')
+
+
