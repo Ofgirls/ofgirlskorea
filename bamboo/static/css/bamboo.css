@@ -88,6 +88,15 @@ h1, h2, h3, h4 {
 .form-group {
   margin: 50px 0 !important;
 }
+
+/* desktop */
+@media screen and (min-width: 992px) {
+  .container {
+    width : 900px;
+  }
+}
+
+/* tablet size screen */
 @media screen and (min-width: 768px) {
   .navbar-ofgirls .navbar-brand,
   .navbar-ofgirls .navbar-nav li > a {
@@ -97,9 +106,23 @@ h1, h2, h3, h4 {
   }
   .container {
     width : 900px;
+      font-family : 'Noto Sans KR', sans-serif;
+  }
+  .info{
+    padding-top : 14px;
+    width : 65%;
+    font-size : 18px;
   }
 }
 
+/*mobile*/
+@media (max-width: 767px) {
+  .info{
+    padding-top : 12px;
+    font-size : 14px;
+  }
+}
+/*.info관련 : contents내 글자들이 화면 크기에 따라 바뀜_17.10.03 */
 
 input[type=text] {
     width: 100%;
@@ -108,4 +131,17 @@ input[type=text] {
     box-sizing: border-box;
     border: none;
     border-bottom: 2px solid #A561CE;
+}
+
+#phrase{
+  text-align : center;
+  font-weight : bold;
+  font-size : 40px;
+  color : #6A2D8F;
+}
+
+.main-para{
+  font-size : 18px;
+  text-align : center;
+  padding-top : 75px;
 }
