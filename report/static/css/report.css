@@ -71,7 +71,6 @@
 }
 /*.info관련 : contents내 글자들이 화면 크기에 따라 바뀜_17.10.03 */
 
-
 input[type=text] {
     width: 100%;
     padding: 12px 20px;
@@ -87,7 +86,6 @@ input[type=text] {
   font-size : 40px;
   color : #6A2D8F;
 }
-
 .main-para{
   font-size : 18px;
   text-align : center;

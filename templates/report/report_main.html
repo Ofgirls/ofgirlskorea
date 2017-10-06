@@ -4,24 +4,24 @@
 
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <button type="button" class="btn btn-default" onclick='to_report_wage()'>임금 체불</button>
-      <button type="button" class="btn btn-default" onclick='to_report_sexual()'>성희롱 관련</button>
-      <button type="button" class="btn btn-default" onclick='to_report_etc()'>기타</button>
+      <button type="button" class="btn btn-warning btn-lg" onclick='to_report_wage()'>임금 체불</button>
+      <button type="button" class="btn btn-warning btn-lg" onclick='to_report_sexual()'>성희롱 관련</button>
+      <button type="button" class="btn btn-warning btn-lg" onclick='to_report_etc()'>기타 신고</button>
     </div>
   </div>
 
 
    <script>
    function to_report_wage() {
-     //Cent OS에 얹은 다음 hyperlink로 url을 다시 달아야 함
-     location.href = "./report_wage.html";
+     //Cent OS에 얹은 다음 rl을 다시 달아야 함
+     location.href = "/report/wage";
    }
    function to_report_sexual(){
-     //Cent OS에 얹은 다음 hyperlink로 url을 다시 달아야 함
-     location.href = "./report_sexual.html";
+     //Cent OS에 얹은 다음 url을 다시 달아야 함
+     location.href = "./report/sexual";
    }
    function to_report_etc(){
-     //Cent OS에 얹은 다음 hyperlink로 url을 다시 달아야 함
+     //Cent OS에 얹은 다음 url을 다시 달아야 함
      location.href = "./report_etc.html";
    }
    </script>

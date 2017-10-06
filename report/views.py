@@ -8,6 +8,10 @@ def index(request):
     return render(request, 'report/index.html')
 
 
+def main(request):
+    return render(request, 'report/report_main.html')
+
+
 def about(request):
     return render(request, 'report/info_aboutus.html')
 
