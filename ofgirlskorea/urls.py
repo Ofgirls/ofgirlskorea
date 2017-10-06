@@ -20,9 +20,11 @@ import bamboo.views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', report.views.index, name='report_main'),
+    url(r'^index/$', report.views.index, name='report_main'),
     url(r'^about/$', report.views.about, name='info_about'),
     url(r'^report/$', report.views.report_list, name='report_list'),
+    url(r'^report/sexual/case1$', report.views.report_sexual_case1, name='report_sexual_case1'),
+    url(r'^report/sexual/$', report.views.report_sexual, name='report_sexual'),
     url(r'^report/wage/$', report.views.report_wage, name='report_wage'),
     url(r'^bamboo/$', bamboo.views.post_list, name='post_list'),
     url(r'^bamboo/(?P<pk>\d+)/$', bamboo.views.post_detail, name='post_detail'),

@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.utils import timezone
-
 from .models import Report
 
 
@@ -23,3 +22,12 @@ def report_wage(request):
     return render(request, 'report/report_minimum_wage.html')
 
 
+def report_sexual(request):
+    return render(request, 'report/report_sexual.html')
+
+
+def report_sexual_case1(request):
+    attacker = request.COOKIES.get('attacker');
+    print(attacker)
+
+    return render(request, 'report/report_sexual_case1.html',{'attacker': attacker})

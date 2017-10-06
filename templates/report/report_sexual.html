@@ -1,0 +1,49 @@
+{% extends 'report/base.html' %}
+
+{% block content %}
+    <h1>성희롱, 성추행 피해 신고</h1>
+    제 이름은<input class="form-control" id="name" type="text" placeholder="이름"> 입니다.
+    저는 <input class="form-control" id="place" type="text" placeholder="지역 + 회사이름"> 에서
+    <input type='text' class='form-control' name=daterange>까지 일을 했습니다.
+    <input type='text' class='form-control' name=date> 에
+    <input class="form-control" id="attacker" type="text" placeholder="가해자명">(이)가 제게 성적수치심을 불러 일으켰습니다.
+
+    <button type="button" class="btn btn-default" onclick='report_host()'>사업주 신고하기</a>
+    <button type="button" class="btn btn-default">직장동료/손님 신고하기</button>
+
+    <script>
+    var format = 'YYYY년 M월 D일';
+    var start = moment().format(format) ;
+    var end = moment().format(format);
+    var date = moment().format(format);
+    function report_host() {
+      console.log(start, end);
+      Cookies.set("name", document.getElementById('name').value);
+      Cookies.set("place", document.getElementById('place').value);
+      Cookies.set("startdate", start);
+      Cookies.set("endate", end);
+      Cookies.set("date", date);
+      Cookies.set("attacker", document.getElementById('attacker').value);
+
+      alert(Cookies.get('name'));
+      window.location.href = '/report/sexual/case1';
+    }
+
+    $(function () {
+        $('input[name="date"]').daterangepicker({
+          singleDatePicker: true,
+          showDropdowns: true
+        },
+        function (_start, _end, label) {
+            date = _start.format(format);
+        });
+      $('input[name=daterange]').daterangepicker({},
+            function (_start, _end, label) {
+
+                start = _start.format(format);
+                end = _end.format(format);
+            });
+
+    });
+    </script>
+{% endblock %}
