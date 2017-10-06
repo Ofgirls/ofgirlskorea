@@ -1,19 +1,20 @@
 {% extends 'report/base.html' %}
+{% load staticfiles %}
 
 {% block content %}
 
   <div class="row" style="text-align : center">
       <h2 style="padding : 10%"> 무슨 고민이 있으세요? </h2>
       <div class="col-xs-6 col-sm-4">
-        <img src="{% static "money.png" %}" class="img-responsive" alt="error"/>
+        <img src="{% static 'srcs/money.png' %}" class="img-responsive" alt="error"/>
         <button type="button" class="btn btn-default btn-lg" onclick='to_report_wage()'>임금 체불</button>
       </div>
       <div class="col-xs-6 col-sm-4">
-        <img src="{% static "female.png" %}" class="img-responsive" alt="error"/>
+        <img src="{% static 'srcs/female.png' %}" class="img-responsive" alt="error"/>
         <button type="button" class="btn btn-default btn-lg" onclick='to_report_sexual()'>성희롱 관련</button>
       </div>
       <div class="col-xs-6 col-sm-4">
-        <img src="{% static "plus.png" %}" class="img-responsive" alt="error"/>
+        <img src="{% static 'srcs/plus.png' %}" class="img-responsive" alt="error"/>
         <button type="button" class="btn btn-default btn-lg" onclick='to_report_etc()'>기타 신고</button>
       </div>
     </div>
