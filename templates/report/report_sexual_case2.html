@@ -1,7 +1,12 @@
 {% extends 'report/base.html' %}
 
 {% block content %}
-    <h1>성희롱, 성추행 피해 신고 - 사업주</h1>
+    <h1>성희롱, 성추행 피해 신고 - 직장동료, 손님</h1>
+
+    <div class="radio">
+      <label><input type="radio" name="optradio">직장 동료</label>
+      <label><input type="radio" name="optradio">손님</label>
+    </div>
 
       {{ attacker }} 는 저에게
     <label class="checkbox-inline"><input type="checkbox" value="">말</label>
@@ -15,12 +20,20 @@
       <label><input type="radio" name="optradio">했습니다. </label>
       <label><input type="radio" name="optradio"> 하지 못했습니다.</label>
     </div>
-    거부하면 {{ attacker }}가 <input class="form-control" id="penalty" type="text" placeholder="불이익">을
+
+    그 당시 <input class="form-control" id="host" type="text" placeholder="사업주 명">는
     <div class="radio">
-      <label><input type="radio" name="optradio">줄 것 같았기 때문입니다.</label>
-      <label><input type="radio" name="optradio">줄 거라고 직접 말했기 때문입니다.</label>
+      <label><input type="radio" name="optradio">함께 있었습니다.</label>
+      <label><input type="radio" name="optradio">사업장에 없었습니다.</label>
+      <label><input type="radio" name="optradio">사업장에 있었으나 사건이 보이지 않는 곳에 있었습니다. </label>
     </div>
 
+    [함께 있었다면,] 사업주 또한 성희롱하는 {{ attacker }}(을)를 저지하려
+    <div class="radio">
+        <label><input type="radio" name="optradio">했습니다. </label>
+        <label><input type="radio" name="optradio">안 했습니다. </label>
+    </div>
+[함께 있었다면, 안 했다면, ] 사업주는 {{ attacker }}(이)가 소속 근로자에게 성희롱을 하지 않도록 방지해야 될 의무가 있으나 이를 이행하지 않았으므로 신고합니다.
 [이후 타임라인을 이용하여 자세하게 사건을 기입해놓으시면 이후 신고 시 도움이 됩니다. 필요한 증거자료는 미리 저장해두시고 (화면 캡처, 녹음 등) 도움이 필요할 경우 아래의 상담소와 상담을 진행하시길 바랍니다. 여러분의 신상은 공개되지 않으며 부당한 대우에 대응하기 위한 조언과 신고 절차를 함께해줍니다.]
 
 {% endblock %}

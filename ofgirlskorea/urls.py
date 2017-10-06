@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^about/$', report.views.about, name='info_about'),
     url(r'^report/$', report.views.report_list, name='report_list'),
     url(r'^report/sexual/case1$', report.views.report_sexual_case1, name='report_sexual_case1'),
+    url(r'^report/sexual/case2$', report.views.report_sexual_case2, name='report_sexual_case2'),
     url(r'^report/sexual/$', report.views.report_sexual, name='report_sexual'),
     url(r'^report/wage/$', report.views.report_wage, name='report_wage'),
     url(r'^bamboo/$', bamboo.views.post_list, name='post_list'),

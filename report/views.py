@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.utils import timezone
 from .models import Report
+import urllib
 
 
 # Create your views here.
@@ -27,7 +28,10 @@ def report_sexual(request):
 
 
 def report_sexual_case1(request):
-    attacker = request.COOKIES.get('attacker');
-    print(attacker)
-
+    attacker = urllib.parse.unquote(request.COOKIES.get('attacker'));
     return render(request, 'report/report_sexual_case1.html',{'attacker': attacker})
+
+
+def report_sexual_case2(request):
+    attacker = urllib.parse.unquote(request.COOKIES.get('attacker'));
+    return render(request, 'report/report_sexual_case2.html',{'attacker': attacker})
