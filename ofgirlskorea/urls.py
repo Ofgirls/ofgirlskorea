@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from django.conf import settings
-from django.conf.urls.static import static
+# from django.conf import settings
+# from django.conf.urls.static import static
 
 import report.views
 import bamboo.views
@@ -34,5 +34,8 @@ urlpatterns = [
     url(r'^bamboo/(?P<pk>\d+)/$', bamboo.views.post_detail, name='post_detail'),
     url(r'^bamboo/new/$', bamboo.views.post_new, name='post_new'),
     url(r'^bamboo/(?P<pk>\d+)/edit/$', bamboo.views.post_edit, name='post_edit'),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
+]
+'''
+              + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
               + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+'''
