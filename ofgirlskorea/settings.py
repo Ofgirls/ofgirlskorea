@@ -121,8 +121,10 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = [
+
+STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'bamboo', 'static'),
     os.path.join(BASE_DIR, 'report', 'static'),
-    ]
+)
 
+STATIC_ROOT = ''
