@@ -8,25 +8,32 @@
     <input type='text' class='form-control' name=date> 에
     <input class="form-control" id="attacker" type="text" placeholder="가해자명">(이)가 제게 성적수치심을 불러 일으켰습니다.
 
-    <button type="button" class="btn btn-default" onclick='report_host()'>사업주 신고하기</button>
-    <button type="button" class="btn btn-default">직장동료/손님 신고하기</button>
+    <button type="button" class="btn btn-default" onclick='report_sexual_case1()'>사업주 신고하기</button>
+    <button type="button" class="btn btn-default" onclick='report_sexual_case2()'>직장동료/손님 신고하기</button>
 
     <script>
     var format = 'YYYY년 M월 D일';
     var start = moment().format(format) ;
     var end = moment().format(format);
     var date = moment().format(format);
-    function report_host() {
-      console.log(start, end);
+
+    function report_sexual_case1() {
       Cookies.set("name", document.getElementById('name').value);
       Cookies.set("place", document.getElementById('place').value);
       Cookies.set("startdate", start);
       Cookies.set("endate", end);
       Cookies.set("date", date);
       Cookies.set("attacker", document.getElementById('attacker').value);
-
-      alert(Cookies.get('name'));
       window.location.href = '/report/sexual/case1';
+    }
+    function report_sexual_case2() {
+      Cookies.set("name", document.getElementById('name').value);
+      Cookies.set("place", document.getElementById('place').value);
+      Cookies.set("startdate", start);
+      Cookies.set("endate", end);
+      Cookies.set("date", date);
+      Cookies.set("attacker", document.getElementById('attacker').value);
+      window.location.href = '/report/sexual/case2';
     }
 
     $(function () {
