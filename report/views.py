@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.utils import timezone
-from .models import Report
 import urllib
 
 
@@ -14,9 +13,7 @@ def about(request):
 
 
 def report_list(request):
-    # reports = Report.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    reports = Report.objects.all()
-    return render(request, 'report/report_list.html', {'reports': reports})
+    return render(request, 'report/report_list.html')
 
 
 def report_wage(request):
