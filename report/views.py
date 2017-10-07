@@ -16,6 +16,10 @@ def report_list(request):
     return render(request, 'report/report_list.html')
 
 
+def report_etc(request):
+    return render(request, 'report/report_etc.html')
+
+
 def report_wage(request):
     return render(request, 'report/report_minimum_wage.html')
 
