@@ -3,3 +3,4 @@ django-jinja==2.4.0
 Jinja2==2.9.6
 MarkupSafe==1.0
 pytz==2017.2
+PyMySQL
