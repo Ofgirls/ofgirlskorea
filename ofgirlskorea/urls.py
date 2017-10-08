@@ -35,6 +35,7 @@ urlpatterns = [
     url(r'^bamboo/(?P<pk>\d+)/$', bamboo.views.post_detail, name='post_detail'),
     url(r'^bamboo/new/$', bamboo.views.post_new, name='post_new'),
     url(r'^bamboo/(?P<pk>\d+)/edit/$', bamboo.views.post_edit, name='post_edit'),
+    url(r'^post/(?P<pk>\d+)/remove/$', bamboo.views.post_remove, name='post_remove'),
 ]
 '''
               + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
