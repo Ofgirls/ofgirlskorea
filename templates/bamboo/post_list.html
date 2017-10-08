@@ -10,6 +10,7 @@
             </div>
             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
             <p>{{ post.text|linebreaksbr }}</p>
+            <h5>======================================</h5>
         </div>
     {% endfor %}
 {% endblock %}
