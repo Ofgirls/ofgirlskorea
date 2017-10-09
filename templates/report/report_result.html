@@ -6,8 +6,21 @@
 
 <script type="text/javascript">
     var div = document.getElementById("textDiv");
-    div.textContent = Cookies.get('text');
-    var text = div.textContent;
+    var case_number = Cookies.get("case");
+    var text = "";
+
+    if(case_number != "case3") {
+      text = Cookies.get('text');
+    }
+    if (case_number != "case0") {
+      if(case_number == "case1") {
+        text += Cookies.get('text_case1');
+      } else if (case_number == "case2") {
+        text += Cookies.get('text_case2');
+      }
+      text += Cookies.get('timeline');
+    }
+    div.textContent = text;
 </script>
 
 {% endblock %}

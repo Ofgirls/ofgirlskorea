@@ -89,6 +89,7 @@
         text = text.replace(/pay/g, pay);
 
         Cookies.set('text', text);
+        Cookies.set('case', "case0");
         window.location.href = '/report/result';
         return false;
     }

@@ -12,13 +12,19 @@
   <p>시간적 순서대로, 천천히 써보세요.</p>
 </div>
 
+<div class="col-xs-offset-8 col-sm-offset-10">
+  <button type="button" class="btn btn-default" onclick="create_timeline()">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 사건 추가하기
+  </button>
+</div>
+
 <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
   <ul class="timeline timeline-split">
     <li class="timeline-item period">
         <div class="timeline-info"></div>
       <div class="timeline-marker"></div>
         <div class="timeline-content">
-            <h2 class="timeline-title"><input type='text' class='form-control input-lg' name=date></h2>
+            <h2 class="timeline-title"><input type='text' class='form-control' name=date></h2>
         </div>
     </li>
 
@@ -32,15 +38,14 @@
       </div>
       <div class="timeline-marker"></div>
       <div class="timeline-content">
-          <textarea class="form-control" rows="3"></textarea>
+          <textarea class="form-control" cols="50" rows="4" name="event" placeholder="사건 장소와 가해자, 발생한 사건과 거부 의사에 대해 적어보세요."></textarea>
       </div>
     </li>
   </ul>
 </div>
 
-<button type="button" class="btn btn-default" onclick="create_timeline()">
-  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 사건 추가하기
-</button>
+<button type="button" class="btn btn-default col-xs-4 col-xs-offset-4" onclick='report_result()'>확인하기</button>
+
 
 <script>
     var format = 'YYYY년 M월 D일';
@@ -86,6 +91,9 @@
 
       var textarea = document.createElement('textarea');
       textarea.setAttribute('class', 'form-control');
+      textarea.setAttribute('cols', '50');
+      textarea.setAttribute('rows', '4');
+      textarea.setAttribute('name', "event");
       content.append(textarea);
 
       item.appendChild(info);
@@ -93,6 +101,20 @@
       item.appendChild(content);
 
       document.querySelector('ul.timeline').appendChild(item);
+    }
+
+    function set_cookie() {
+      var x = document.getElementsByName("event");
+      var i;
+      var timeline="";
+      for (i = 0; i < x.length; i++) {
+          timeline += x[i].value + "<br>";
+      }
+      Cookies.set("timeline", timeline);
+    }
+    function report_result() {
+      set_cookie();
+      window.location.href = '/report/result';
     }
 </script>
 
