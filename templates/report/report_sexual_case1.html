@@ -1,26 +1,159 @@
 {% extends 'report/base.html' %}
 
 {% block content %}
+<form class="form" onsubmit='return false;'>
     <h1>성희롱, 성추행 피해 신고 - 사업주</h1>
 
-      {{ attacker }} 는 저에게
-    <label class="checkbox-inline"><input type="checkbox" value="">말</label>
-    <label class="checkbox-inline"><input type="checkbox" value="">행동</label>
-    <label class="checkbox-inline"><input type="checkbox" value="">전화</label>
-    <label class="checkbox-inline"><input type="checkbox" value="">문자</label>
-    <label class="checkbox-inline"><input type="checkbox" value="">기타</label>
+    {{ attacker }}은(는) 저에게
+    <div class="validation">
+      <div class="checkbox">
+        <label class="checkbox-inline"><input type="checkbox" name="speech" value="말">말</label>
+        <label class="checkbox-inline"><input type="checkbox" name="motion" value="행동">행동</label>
+        <label class="checkbox-inline"><input type="checkbox" name="call" value="전화">전화</label>
+        <label class="checkbox-inline"><input type="checkbox" name="message" value="문자">문자</label>
+        <label class="checkbox-inline"><input type="checkbox" name="etccheck" value="기타">기타 :</label>
+        <input type='text' class='form-control' style='width: 200px; display: inline-block;' name="etc" id="etc" type="text" placeholder="기타 내용">
+      </div>
+    </div>
     로 성희롱을 했으며,
+
     저는 거부의사 표현을
-    <div class="radio">
-      <label><input type="radio" name="optradio">했습니다. </label>
-      <label><input type="radio" name="optradio"> 하지 못했습니다.</label>
+    <div class="validation">
+      <div class="radio">
+        <label><input type="radio" name="optradio1" id="case1.1" value="했습니다. ">했습니다. </label>
+        <label><input type="radio" name="optradio1" id="case1.2" value="하지 못했습니다. "> 하지 못했습니다. </label>
+      </div>
     </div>
-    거부하면 {{ attacker }}가 <input class="form-control" id="penalty" type="text" placeholder="불이익">을
-    <div class="radio">
-      <label><input type="radio" name="optradio">줄 것 같았기 때문입니다.</label>
-      <label><input type="radio" name="optradio">줄 거라고 직접 말했기 때문입니다.</label>
+    거부하면 {{ attacker }}이(가)
+    <div class="validation">
+      <input class="form-control" id="penalty" type="text" placeholder="불이익" data-msg-required='내용을 작성해주세요.' required>
+    </div>
+    을
+    <div class="validation">
+      <div class="radio">
+        <label><input type="radio" name="optradio2" id="case2.1" value="줄 것 같았기 때문입니다. ">줄 것 같았기 때문입니다.</label>
+        <label><input type="radio" name="optradio2" id="case2.2" value="줄 거라고 직접 말했기 때문입니다. ">줄 거라고 직접 말했기 때문입니다.</label>
+      </div>
     </div>
 
-[이후 타임라인을 이용하여 자세하게 사건을 기입해놓으시면 이후 신고 시 도움이 됩니다. 필요한 증거자료는 미리 저장해두시고 (화면 캡처, 녹음 등) 도움이 필요할 경우 아래의 상담소와 상담을 진행하시길 바랍니다. 여러분의 신상은 공개되지 않으며 부당한 대우에 대응하기 위한 조언과 신고 절차를 함께해줍니다.]
+    <div class="alert alert-info" role="alert">
+      이후 타임라인을 이용하여 자세하게 사건을 기입해놓으시면 이후 신고 시 도움이 됩니다.<br>
+      필요한 증거자료(화면 캡처, 녹음 등)는 미리 저장해두시고, 도움이 필요할 경우 아래의 상담소와 상담을 진행하시길 바랍니다.<br>
+      여러분의 신상은 공개되지 않으며 부당한 대우에 대응하기 위한 조언과 신고 절차를 함께해줍니다.
+    </div>
+    <button type="button" class="btn btn-default" onclick='report_etc()'>타임라인 작성하기</button>
+</form>
 
+<script>
+  jQuery.validator.setDefaults({
+    success: 'valid'
+  })
+  jQuery.validator.addMethod('checkboxAtLeast1', function(value, element) {
+    var checkboxes = $(element).closest('.checkbox').find('input[type=checkbox]:checked');
+    console.log(checkboxes.length);
+    return checkboxes.length >= 1;
+  }, jQuery.validator.format('적어도 하나 이상 체크해야 합니다. '));
+  $('form.form').validate({
+    rules: {
+        speech: {
+          checkboxAtLeast1: true,
+        },
+        motion: {
+          checkboxAtLeast1: true,
+        },
+        call: {
+          checkboxAtLeast1: true,
+        },
+        message: {
+          checkboxAtLeast1: true,
+        },
+        etccheck: {
+          checkboxAtLeast1: true,
+        },
+        optradio1: {
+            required: true,
+        },
+        optradio2: {
+            required: true,
+        }
+    },
+    messages: {
+      optradio1: {
+        required: '선택하지 않으셨습니다.'
+      },
+      optradio2: {
+        required: '선택하지 않으셨습니다.'
+      }
+    },
+    errorPlacement: function(error, element) {
+      error.addClass('help-block');
+
+      if (element.attr('type') === 'radio' || element.attr('type') === 'checkbox') {
+        if (element.parent().index() == 0) {
+          error.insertAfter(element.closest('.' + element.attr('type')));
+        }
+      } else {
+        error.insertAfter(element);
+      }
+    },
+    highlight: function(element, errorClass) {
+      $(element).parents('.validation').addClass('has-error').removeClass('has-success');
+
+    },
+    unhighlight: function(element, errorClass) {
+      $(element).parents('.validation').removeClass('has-error').addClass('has-success');
+
+    }
+  });
+
+  function set_cookie() {
+    var text ="attacker은(는) 저에게 ";
+    var attacks = [];
+    if (document.getElementsByName("speech")[0].checked) {
+      attacks.push(document.getElementsByName("speech")[0].value);
+    }
+    if (document.getElementsByName("motion")[0].checked) {
+      attacks.push(document.getElementsByName("motion")[0].value);
+    }
+    if (document.getElementsByName("call")[0].checked) {
+      attacks.push(document.getElementsByName("call")[0].value);
+    }
+    if (document.getElementsByName("message")[0].checked) {
+      attacks.push(document.getElementsByName("message")[0].value);
+    }
+    if (document.getElementsByName("etc")[0].checked) {
+      attacks.push(document.getElementsByName("etc")[0].value);
+    }
+
+    text += attacks.join(', ');
+
+    text += "로 성희롱을 했으며, 저는 거부의사 표현을 ";
+    if (document.getElementById("case1.1").checked) {
+      text += document.getElementById("case1.1").value;
+    } else if(document.getElementById("case1.2").checked) {
+      text += document.getElementById("case1.2").value;
+    }
+    text += "거부하면 attacker이(가) penalty을(를)";
+    if (document.getElementById("case2.1").checked) {
+      text += document.getElementById("case2.1").value;
+    } else if(document.getElementById("case2.2").checked) {
+      text += document.getElementById("case2.2").value;
+    }
+
+    var attacker = Cookies.get('attacker');
+    var penalty = document.getElementById("penalty").value;
+    text = text.replace(/attacker/g, attacker);
+    text = text.replace(/penalty/g, penalty);
+    Cookies.set("text_case1", text);
+    Cookies.set("case","case1");
+  }
+
+  function report_etc() {
+    if (!$('form.form').valid()) {
+      return false;
+    }
+    set_cookie();
+    window.location.href = '/report/etc';
+  }
+</script>
 {% endblock %}
