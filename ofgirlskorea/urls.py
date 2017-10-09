@@ -36,6 +36,8 @@ urlpatterns = [
     url(r'^bamboo/new/$', bamboo.views.post_new, name='post_new'),
     url(r'^bamboo/(?P<pk>\d+)/edit/$', bamboo.views.post_edit, name='post_edit'),
     url(r'^post/(?P<pk>\d+)/remove/$', bamboo.views.post_remove, name='post_remove'),
+    url(r'^post/(?P<pk>\d+)/comment/$', bamboo.views.add_comment_to_post, name='add_comment_to_post'),
+
 ]
 '''
               + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
