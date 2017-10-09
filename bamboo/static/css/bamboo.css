@@ -1,5 +1,6 @@
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
+/* navbar 관련 css */
 .navbar-ofgirls {
   /* border-bottom-width: 2px; */
   border-radius : 0px;
@@ -30,9 +31,6 @@
 .navbar-ofgirls .navbar-header .navbar-toggle {
   margin-top: 32px;
   margin-bottom: 33px;
-}
-.form-group {
-  margin: 50px 0 !important;
 }
 
 /* desktop */
@@ -70,6 +68,25 @@
   }
 }
 /*.info관련 : contents내 글자들이 화면 크기에 따라 바뀜_17.10.03 */
+
+/* 여기부터 추가적인 css */
+h2 a {
+    font-family : 'Noto Sans KR', sans-serif;
+    color: #A561CE;
+}
+
+.date {
+    color: #828282;
+}
+
+.save {
+    float: right;
+}
+
+.comment {
+    margin: 20px 0px 20px 20px;
+}
+
 
 input[type=text] {
     width: 100%;

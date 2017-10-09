@@ -5,12 +5,12 @@
 <div class="post">
     <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
     <a class="btn btn-default" href="{% url 'post_list'%}"><span class="glyphicon glyphicon-list"></span></a>
-    <a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+    <a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}"><span
+            class="glyphicon glyphicon-remove"></span></a>
 
     <a class="btn btn-default" href="{% url 'post_list'%}"><span class="glyphicon glyphicon-leaf"></span></a>
     <a class="btn btn-default" href="{% url 'post_list'%}"><span class="glyphicon glyphicon-heart-empty"></span></a>
     <a class="btn btn-default" href="{% url 'post_list'%}"><span class="glyphicon glyphicon-heart"></span></a>
-
 
 
     {% if post.published_date %}
@@ -18,19 +18,22 @@
         {{ post.published_date }}
     </div>
     {% endif %}
-    <h1>{{ post.title }}</h1>
     <h3> 글쓴이: {{ post.writer }}</h3>
+    <h2>{{ post.title }}</h2>
     <p>{{ post.text|linebreaksbr }}</p>
 </div>
 
 <hr>
+<a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>
+
 {% for comment in post.comments.all %}
-    <div class="comment">
-        <div class="date">{{ comment.created_date }}</div>
-        <strong>{{ comment.author }}</strong>
-        <p>{{ comment.text|linebreaks }}</p>
-    </div>
+<div class="comment">
+    <div class="date">{{ comment.created_date }}</div>
+    <strong>{{ comment.author }}</strong>
+    <p>{{ comment.text|linebreaks }}</p>
+</div>
 {% empty %}
-    <p>No comments here yet :(</p>
+<p>No comments here yet :(</p>
 {% endfor %}
+
 {% endblock %}
