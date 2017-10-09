@@ -31,6 +31,7 @@ urlpatterns = [
     url(r'^report/sexual/case2$', report.views.report_sexual_case2, name='report_sexual_case2'),
     url(r'^report/wage/$', report.views.report_wage, name='report_wage'),
     url(r'^report/etc/$', report.views.report_etc, name='report_etc'),
+    url(r'^report/result/$', report.views.report_result, name='report_result'),
     url(r'^bamboo/$', bamboo.views.post_list, name='post_list'),
     url(r'^bamboo/(?P<pk>\d+)/$', bamboo.views.post_detail, name='post_detail'),
     url(r'^bamboo/new/$', bamboo.views.post_new, name='post_new'),

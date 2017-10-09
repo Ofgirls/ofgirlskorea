@@ -36,3 +36,7 @@ def report_sexual_case1(request):
 def report_sexual_case2(request):
     attacker = urllib.parse.unquote(request.COOKIES.get('attacker'));
     return render(request, 'report/report_sexual_case2.html',{'attacker': attacker})
+
+
+def report_result(request):
+    return render(request, 'report/report_result.html')

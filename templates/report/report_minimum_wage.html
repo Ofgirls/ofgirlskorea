@@ -2,38 +2,57 @@
 
 {% block content %}
     <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <form class="form" onsubmit='return formsubmit();'>
-                <h1>최저임금 미준수</h1>
-                <div class="form-group">
-                    <label for="name">(1) 이름 </label>
-                    <input class="form-control input-lg" id="name" type="text" placeholder="Name">
-                </div>
-                <div class="form-group">
-                    <label for="service_period">(2) 근무지(지역 + 상호명) ex.신촌명물거리 알촌 </label>
-                    <input class="form-control input-lg" id="place" type="text" placeholder="Place">
-                </div>
-                <div class="form-group">
-                    <label> (3) 근무기간 </label>
-                    <input type='text' class='form-control input-lg' name='daterange'>
-                </div>
-                <div class="form-group">
-                    <label for="service_period">(4) 전체 시간 </label>
-                    <input class="form-control input-lg" id="total_time" type="text" placeholder="Time">
-                </div>
-                <div class="form-group">
-                    <label for="service_period">(5) 받은 액수 </label>
-                    <input class="form-control input-lg" id="take" type="text" placeholder="Money">
-                </div>
-                <div class="form-group">
-                    <input type="submit" class="btn btn-primary btn-lg" value="submit"/>
-                </div>
-            </form>
-        </div>
+      <form class="form" onsubmit='return formsubmit();'>
+          <h1>최저임금 미준수</h1>
+          제 이름은
+          <div class="validation">
+            <input class="form-control" name="name" id="name" type="text" placeholder="이름" data-msg-required='이름을 작성해주세요.' required>
+          </div>
+          입니다.
+
+          저는
+          <div class="validation">
+            <input class="form-control" name="place" id="place" type="text" placeholder="지역 + 가게이름 (ex. 서울시 마포구 싱싱청과)" data-msg-required='상호명을 작성해주세요.' required>
+          </div>
+           에서
+          <div class="validation">
+            <input type='text' class='form-control' name='daterange' required>까지 일을 했습니다.
+          </div>
+          총
+          <div class="validation">
+            <input class="form-control" name='total_time' id="total_time" type="text" placeholder="총 일한 시간" digits="true" data-msg-digits='일한 시간은 숫자로만 작성해주세요.' data-msg-required='일한 시간을 작성해주세요.' required>
+          </div>
+          시간을 일했습니다.
+          그런데 제가 받은 액수는 총
+          <div class="validation">
+            <input class="form-control" name="take" id="take" type="text" placeholder="받은 금액" digits="true" data-msg-digits='받은 금액은 숫자로만 작성해주세요.' data-msg-required='받은 금액을 작성해주세요.' required>
+          </div>
+          원입니다.
+          <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="submit"/>
+          </div>
+      </form>
     </div>
     <script>
         var start;
         var end;
+        jQuery.validator.setDefaults({
+          success: 'valid'
+        })
+        $('form.form').validate({
+          errorPlacement: function(error, element) {
+            error.addClass('help-block');
+            error.insertAfter(element);
+          },
+          highlight: function(element, errorClass) {
+            $(element).parents('.validation').addClass('has-error').removeClass('has-success');
+
+          },
+          unhighlight: function(element, errorClass) {
+            $(element).parents('.validation').removeClass('has-error').addClass('has-success');
+
+          }
+        });
         $(function () {
             $('input[name=daterange]').daterangepicker({},
                 function (_start, _end, label) {
@@ -43,6 +62,10 @@
                 });
         });
         function formsubmit() {
+            console.log($('form.form').valid());
+            if (!$('form.form').valid()) {
+              return false;
+            }
             var name = document.getElementById('name').value;
             var place = document.getElementById('place').value;
             var total_time = document.getElementById('total_time').value;
@@ -60,9 +83,11 @@
             text = text.replace(/place/g, place);
             text = text.replace(/total_time/g, total_time);
             text = text.replace(/take/g, take);
-            text = text.replace(/pay/g, pay);
             text = text.replace(/total_pay/g, total_pay);
-            alert(text);
+            text = text.replace(/pay/g, pay);
+
+            Cookies.set('text', text);
+            window.location.href = '/report/result';
             return false;
         }
     </script>

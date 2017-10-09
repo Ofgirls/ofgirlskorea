@@ -1,0 +1,13 @@
+{% extends 'report/base.html' %}
+
+{% block content %}
+
+<div id="textDiv"></div>
+
+<script type="text/javascript">
+    var div = document.getElementById("textDiv");
+    div.textContent = Cookies.get('text');
+    var text = div.textContent;
+</script>
+
+{% endblock %}
