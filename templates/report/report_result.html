@@ -20,7 +20,14 @@
       }
       text += Cookies.get('timeline');
     }
-    div.textContent = text;
+
+
+    text.split('\n').forEach(function(line) {
+      var child_div = document.createElement('div');
+      child_div.textContent = line;
+      div.append(child_div);
+    })
+
 </script>
 
 {% endblock %}

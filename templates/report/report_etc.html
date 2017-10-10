@@ -34,7 +34,7 @@
         <button type="button" class="btn btn-default" onclick="remove_timeline(this)">
           <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
         </button>
-        <span>시간 셀렉터를 넣어야함</span>
+        <input type='text' class="timepicker" name='time'>
       </div>
       <div class="timeline-marker"></div>
       <div class="timeline-content">
@@ -50,6 +50,7 @@
 <script>
     var format = 'YYYY년 M월 D일';
     var date = moment().format(format);
+    init_timepicker();
     $(function () {
         $('input[name="date"]').daterangepicker({
           singleDatePicker: true,
@@ -64,6 +65,9 @@
       console.log(el);
       var item = el.parentNode.parentNode;
       item.remove();
+    }
+    function init_timepicker() {
+      $('.timepicker').wickedpicker();
     }
     function create_timeline() {
       var item = document.createElement('li');
@@ -80,7 +84,13 @@
       removeBtn.onclick = function() { remove_timeline(this); };
       removeBtn.innerHTML = '<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>';
 
+      var timepicker = document.createElement('input');
+      timepicker.setAttribute('type', 'text');
+      timepicker.setAttribute('class', 'timepicker');
+      timepicker.setAttribute('name', 'time');
+
       info.appendChild(removeBtn);
+      info.appendChild(timepicker);
 
       var marker = document.createElement('div');
       marker.setAttribute('class', 'timeline-marker');
@@ -101,6 +111,7 @@
       item.appendChild(content);
 
       document.querySelector('ul.timeline').appendChild(item);
+      $(timepicker).wickedpicker();
     }
 
     function set_cookie() {
@@ -108,7 +119,8 @@
       var i;
       var timeline="";
       for (i = 0; i < x.length; i++) {
-          timeline += x[i].value + "<br>";
+          timeline += $($('.timepicker')[i]).wickedpicker('time') +' ';
+          timeline += x[i].value + "\n";
       }
       Cookies.set("timeline", timeline);
     }
