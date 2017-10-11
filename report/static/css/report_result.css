@@ -1,0 +1,82 @@
+
+.section {
+  position: relative;
+  width: 900px;
+  max-width: 90%;
+  border: 2px solid #ffb400;
+  border-top: none;
+  text-align: center;
+  margin: 60px auto;
+}
+
+.section h1 {
+  position: relative;
+  margin-top: -14px;
+  display: inline-block;
+  letter-spacing: 4px;
+  color: #ffb400;
+}
+
+.top-border {
+  position: absolute;
+  height: 2px;
+  width: 35%;
+  background-color: #ffb400;
+}
+
+.right {
+  right: 0;
+}
+
+.left {
+  left: 0;
+}
+
+@media (max-width: 685px) {
+.top-border {
+  width: 18%;
+	}
+}
+
+.result div {
+  text-align: left;
+  margin : 0 20px;
+  line-height: 32px;
+  font-size: 16px;
+}
+
+.section a {
+  display: inline-block;
+  padding: 20px;
+  margin-bottom: 40px;
+  width: 300px;
+  max-width: 80%;
+  background-color: #ffb400;
+  color: #fff;
+  font-size: 22px;
+  letter-spacing: 3px;
+  transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -webkit-transition: all 0.3s ease 0s;
+}
+
+.section a:hover {
+  background-color: #ffce00;
+}
+
+.section a:link, .section a:visited, .section a:link:hover, .section a:visited:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
+@media (max-width: 500px) {
+  .top-border {
+    display: none;
+  }
+  .section {
+  border-top: 2px solid #ffb400;
+  }
+  .section h1 {
+    margin: 20px 6px;
+  }
+}

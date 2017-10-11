@@ -117,9 +117,9 @@
     function set_cookie() {
       var x = document.getElementsByName("event");
       var i;
-      var timeline="";
+      var timeline = "<" + date +">\n";
       for (i = 0; i < x.length; i++) {
-          timeline += $($('.timepicker')[i]).wickedpicker('time') +' ';
+          timeline += $($('.timepicker')[i]).wickedpicker('time') +' - ';
           timeline += x[i].value + "\n";
       }
       Cookies.set("timeline", timeline);

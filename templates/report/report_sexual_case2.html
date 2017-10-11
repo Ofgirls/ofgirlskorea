@@ -2,68 +2,93 @@
 
 {% block content %}
 <form class="form" onsubmit='return false;'>
-  <h1>성희롱, 성추행 피해 신고 - 직장동료, 손님</h1>
+  <div class="form-box">
+    <div class="form_title">
+      <h1>성희롱, 성추행 피해 신고 - 직장동료, 손님</h1>
+    </div>
 
+    <div class="form-content">
+      저에게 피해를 준 사람은
+      <div class="validation">
+        <div class="radio">
+          <label><input type="radio" name="optradio0" id="case0.1" value="직장동료">직장동료</label>
+          <label><input type="radio" name="optradio0" id="case0.2" value="손님">손님</label>
+        </div>
+      </div>
+      입니다.
+    </div>
 
-
-    {{ attacker }} 은(는)
-    <div class="validation">
-      <div class="radio">
-        <label><input type="radio" name="optradio0" id="case0.1" value="직장동료">직장동료</label>
-        <label><input type="radio" name="optradio0" id="case0.2" value="손님">손님</label>
+    <div class="form-content">
+      당시 {{ attacker }}은(는)
+      <div class="validation">
+        <div class="checkbox">
+          <label class="checkbox-inline"><input type="checkbox" name="speech" value="말">말</label>
+          <label class="checkbox-inline"><input type="checkbox" name="motion" value="행동">행동</label>
+          <label class="checkbox-inline"><input type="checkbox" name="call" value="전화">전화</label>
+          <label class="checkbox-inline"><input type="checkbox" name="message" value="문자">문자</label>
+          <label class="checkbox-inline"><input type="checkbox" name="etccheck" value="기타">기타 :</label>
+          <input type='text' class='form-control' style='width: 200px; display: inline-block;' name="etc" id="etc" type="text" placeholder="기타 내용">
+        </div>
+      </div>
+      로 성희롱을 했으며,
+    </div>
+    <div class="form-content">
+      저는 거부의사 표현을
+      <div class="validation">
+        <div class="radio">
+          <label><input type="radio" name="optradio1" id="case1.1" value="했습니다. ">했습니다. </label>
+          <label><input type="radio" name="optradio1" id="case1.2" value="하지 못했습니다. "> 하지 못했습니다. </label>
+        </div>
       </div>
     </div>
-    입니다.
 
-    {{ attacker }}는 저에게
-    <div class="validation">
-      <div class="checkbox">
-        <label class="checkbox-inline"><input type="checkbox" name="speech" value="말">말</label>
-        <label class="checkbox-inline"><input type="checkbox" name="motion" value="행동">행동</label>
-        <label class="checkbox-inline"><input type="checkbox" name="call" value="전화">전화</label>
-        <label class="checkbox-inline"><input type="checkbox" name="message" value="문자">문자</label>
-        <label class="checkbox-inline"><input type="checkbox" name="etccheck" value="기타">기타 :</label>
-        <input type='text' class='form-control' style='width: 200px; display: inline-block;' name="etc" id="etc" type="text" placeholder="기타 내용">
+    <div class="form-content">
+      당시
+      <div class="validation">
+        <input class="form-control" id="host" type="text" placeholder="사업주 명" data-msg-required="사업주의 이름을 입력해주세요." required>
+      </div>
+      은(는)
+    </div>
+
+    <div class="form-content">
+      <div class="validation">
+        <div class="radio">
+          <label><input type="radio" name="optradio2" id="case2.1" value="함께 있었습니다. ">함께 있었습니다. </label>
+          <label><input type="radio" name="optradio2" id="case2.2" value="사업장에 없었습니다. ">사업장에 없었습니다. </label>
+          <label><input type="radio" name="optradio2" id="case2.3" value="사업장에 있었으나 사건이 보이지 않는 곳에 있었습니다. ">사업장에 있었으나 사건이 보이지 않는 곳에 있었습니다. </label>
+        </div>
       </div>
     </div>
-  로 성희롱을 했으며,
-  저는 거부의사 표현을
-  <div class="validation">
-    <div class="radio">
-      <label><input type="radio" name="optradio1" id="case1.1" value="했습니다. ">했습니다. </label>
-      <label><input type="radio" name="optradio1" id="case1.2" value="하지 못했습니다. "> 하지 못했습니다. </label>
-    </div>
-  </div>
 
-  그 당시
-  <div class="validation">
-    <input class="form-control" id="host" type="text" placeholder="사업주 명" data-msg-required="사업주의 이름을 입력해주세요." required>
-  </div>
-  은(는)
-  <div class="validation">
-    <div class="radio">
-      <label><input type="radio" name="optradio2" id="case2.1" value="함께 있었습니다. ">함께 있었습니다. </label>
-      <label><input type="radio" name="optradio2" id="case2.2" value="사업장에 없었습니다. ">사업장에 없었습니다. </label>
-      <label><input type="radio" name="optradio2" id="case2.3" value="사업장에 있었으나 사건이 보이지 않는 곳에 있었습니다. ">사업장에 있었으나 사건이 보이지 않는 곳에 있었습니다. </label>
-    </div>
-  </div>
-
-  <div class='hidden-layer' style='display: none;'>
-  사업주 또한 성희롱하는 {{ attacker }}을(를) 저지하려
-    <div class="validation">
-      <div class="radio">
-          <label><input type="radio" name="optradio3" id="case3.1" value="했습니다. ">했습니다. </label>
-          <label><input type="radio" name="optradio3" id="case3.2" value="안 했습니다. ">안 했습니다. </label>
+    <div class='hidden-layer' style='display: none;'>
+      <div class="form-content">
+      사업주 또한 성희롱하는 {{ attacker }}을(를) 저지하려
+        <div class="validation">
+          <div class="radio">
+              <label><input type="radio" name="optradio3" id="case3.1" value="했습니다. ">했습니다. </label>
+              <label><input type="radio" name="optradio3" id="case3.2" value="안 했습니다. ">안 했습니다. </label>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="alert alert-info" role="alert">
-    이후 타임라인을 이용하여 자세하게 사건을 기입해놓으시면 이후 신고 시 도움이 됩니다.<br>
-    필요한 증거자료(화면 캡처, 녹음 등)는 미리 저장해두시고, 도움이 필요할 경우 아래의 상담소와 상담을 진행하시길 바랍니다.<br>
-    여러분의 신상은 공개되지 않으며 부당한 대우에 대응하기 위한 조언과 신고 절차를 함께해줍니다.
+    <div class="form-content">
+      사건 이후 사업주는
+      <div class="validation">
+        <div class="radio">
+            <label><input type="radio" name="optradio4" id="case4.1" value=" 저를 보호해주었습니다.(혹은 해당 사건을 해결해주었습니다.) "> 저를 보호해주었습니다.(혹은 해당 사건을 해결해주었습니다.) </label>
+            <label><input type="radio" name="optradio4" id="case4.2" value=" 저를 보호해주지 못했습니다. "> 저를 보호해주지 못했습니다. </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert alert-info" role="alert">
+      이후 타임라인을 이용하여 자세하게 사건을 기입해놓으시면 이후 신고 시 도움이 됩니다.<br>
+      필요한 증거자료(화면 캡처, 녹음 등)는 미리 저장해두시고, 도움이 필요할 경우 아래의 상담소와 상담을 진행하시길 바랍니다.<br>
+      여러분의 신상은 공개되지 않으며 부당한 대우에 대응하기 위한 조언과 신고 절차를 함께해줍니다.
+    </div>
   </div>
-  <button type="button" class="btn btn-default" onclick='report_etc()'>타임라인 작성하기</button>
+  <button type="button" class="btn btn-default col-xs-4 col-xs-offset-4" onclick='report_etc()'>타임라인 작성하기</button>
 </form>
 <script>
   $('input[name=optradio2]').change(function(){
@@ -111,6 +136,9 @@
         },
         optradio3: {
             required: true,
+        },
+        optradio4: {
+            required: true,
         }
     },
     messages: {
@@ -124,6 +152,9 @@
         required: '선택하지 않으셨습니다.'
       },
       optradio3: {
+        required: '선택하지 않으셨습니다.'
+      },
+      optradio4: {
         required: '선택하지 않으셨습니다.'
       }
     },
@@ -149,7 +180,8 @@
   });
 
   function set_cookie() {
-    var text ="attacker은(는) ";
+    var text ="저에게 피해를 준 사람은 ";
+    var host = document.getElementById("host").value;
     var attacks = [];
     var attacker_type = "";
 
@@ -159,7 +191,7 @@
     attacker_type = document.getElementById("case0.2").value;
     }
 
-    text += attacker_type + "입니다. attacker은(는) 저에게 ";
+    text += attacker_type + " 입니다.\n 당시 attacker은(는) 저에게 ";
     if (document.getElementsByName("speech")[0].checked) {
       attacks.push(document.getElementsByName("speech")[0].value);
     }
@@ -185,7 +217,7 @@
       text += document.getElementById("case1.2").value;
     }
 
-    text += "그 당시 " + document.getElementById("host").value + "은(는) ";
+    text += "\n당시 " + host + "은(는) ";
 
     if (document.getElementById("case2.1").checked) {
       text += document.getElementById("case2.1").value;
@@ -194,13 +226,20 @@
     } else if(document.getElementById("case2.3").checked) {
       text += document.getElementById("case2.3").value;
     }
+    text += "\n";
 
     if (document.getElementById("case3.1").checked) {
-      text += "사업주 또한 성희롱하는 attacker을(를) 저지하려 " + document.getElementById("case3.1").value;
+      text += host + " 또한 성희롱하는 attacker을(를) 저지하려 " + document.getElementById("case3.1").value;
     } else if(document.getElementById("case3.2").checked) {
-      text += "사업주 또한 성희롱하는 attacker을(를) 저지하려 " + document.getElementById("case3.2").value;
-    } else {
-      text += "사업주는 " + attacker_type + "이(가) 소속 근로자에게 성희롱을 하지 않도록 방지해야 될 의무가 있으나 이를 이행하지 않았으므로 신고합니다.";
+      text += host + " 또한 성희롱하는 attacker을(를) 저지하려 " + document.getElementById("case3.2").value;
+    }
+    text += "\n사건 이후 " + host + "은(는)";
+
+    if (document.getElementById("case4.1").checked) {
+      text += document.getElementById("case4.1").value;
+    } else if(document.getElementById("case4.2").checked) {
+      text += document.getElementById("case4.2").value;
+      text += "\n" + host + " 또한 " + attacker_type + "이(가) 소속 근로자에게 성희롱을 하지 않도록 방지해야 될 의무가 있으나 이를 이행하지 않았으므로 신고합니다.\n";
     }
 
     var attacker = Cookies.get('attacker');

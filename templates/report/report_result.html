@@ -1,8 +1,19 @@
 {% extends 'report/base.html' %}
-
+{% load staticfiles %}
 {% block content %}
 
-<div id="textDiv"></div>
+<link rel="stylesheet" href="{% static 'css/report_result.css' %}">
+
+<div class="section">
+  <div class="top-border left"></div>
+  <div class="top-border right"></div>
+  <h1>작성 내용</h1>
+  <div style="margin:30px 0" class="result">
+    <div id="textDiv"></div>
+  </div>
+  <a href="#">CONTACT</a>
+</div>
+
 
 <script type="text/javascript">
     var div = document.getElementById("textDiv");

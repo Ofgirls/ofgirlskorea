@@ -2,37 +2,60 @@
 
 {% block content %}
 <form class="form" onsubmit='return formsubmit();'>
-    <h1>최저임금 미준수</h1>
-    제 이름은
-    <div class="validation">
-      <input class="form-control" name="name" id="name" type="text" placeholder="이름" data-msg-required='이름을 작성해주세요.' required>
+  <div class="form-box">
+    <div class="form_title">
+      <h1>최저임금 미준수 신고</h1>
     </div>
-    입니다.
+    
+    <div class="form-content">
+      제 이름은
+      <div class="validation">
+        <input class="form-control" name="name" id="name" type="text" placeholder="이름" data-msg-required='이름을 작성해주세요.' required>
+      </div>
+      입니다.
+    </div>
 
-    저는
-    <div class="validation">
-      <input class="form-control" name="place" id="place" type="text" placeholder="지역 + 가게이름 (ex. 서울시 마포구 싱싱청과)" data-msg-required='상호명을 작성해주세요.' required>
+    <div class="form-content">
+      저는
+      <div class="validation">
+        <input class="form-control" name="place" id="place" type="text" placeholder="지역+가게이름 (ex.서울시 마포구 00편의점)" data-msg-required='상호명을 작성해주세요.' required>
+      </div>
+      에서 아래 기간 동안 일했습니다.
     </div>
-     에서
+    <div class="form-content">
+      <div class="validation" style="display: block;">
+        <input type='text' class='form-control' name='daterange' required>
+      </div>
+      (현재도 일하고 있다면, 오늘 날짜 또는 직전 급료일까지 기입)
+    </div>
 
-    <div class="validation">
-      <input type='text' class='form-control' name='daterange' required>
+    <div class="form-content">
+      시간으로 따지면 총
+      <div class="validation">
+        <input class="form-control" name='total_time' id="total_time" type="text" placeholder="총 일한 시간 (ex. 23시간 30분 -> 23.5)" number="true" data-msg-number='일한 시간은 숫자로만 작성해주세요.' data-msg-required='일한 시간을 작성해주세요.' required>
+      </div>
+      시간을 일했습니다.
     </div>
-    까지 일을 했습니다.
 
-    총
-    <div class="validation">
-      <input class="form-control" name='total_time' id="total_time" type="text" placeholder="총 일한 시간" digits="true" data-msg-digits='일한 시간은 숫자로만 작성해주세요.' data-msg-required='일한 시간을 작성해주세요.' required>
+    <div class="form-content">
+      저는 시급을
+      <div class="validation">
+        <input class="form-control" name="hourly_wage" id="hourly_wage" type="text" placeholder="계약서 상 시급 또는 사장님이 약속한 시급" digits="true" data-msg-digits='금액은 숫자로만 작성해주세요.' data-msg-required='금액을 작성해주세요.' required>
+      </div>
+      원 받기로 했습니다.
     </div>
-    시간을 일했습니다.
-    그런데 제가 받은 액수는 총
-    <div class="validation">
-      <input class="form-control" name="take" id="take" type="text" placeholder="받은 금액" digits="true" data-msg-digits='받은 금액은 숫자로만 작성해주세요.' data-msg-required='받은 금액을 작성해주세요.' required>
+
+    <div class="form-content">
+      그런데 제가 받은 액수는 총
+      <div class="validation">
+        <input class="form-control" name="take" id="take" type="text" placeholder="받은 금액" digits="true" data-msg-digits='금액은 숫자로만 작성해주세요.' data-msg-required='금액을 작성해주세요.' required>
+      </div>
+      원입니다.
     </div>
-    원입니다.
-    <div class="form-group">
-      <input type="submit" class="btn btn-primary" value="submit"/>
-    </div>
+  </div>
+  <div style="margin: 30px 0;">
+    <input type="submit" class="btn btn-default col-xs-4 col-xs-offset-4" value="작성 완료"/>
+  </div>
 </form>
 
 <script>
@@ -64,6 +87,9 @@
                 end = _end.format(format);
             });
     });
+    function numberWithCommas(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
     function formsubmit() {
         if (!$('form.form').valid()) {
           return false;
@@ -72,19 +98,27 @@
         var place = document.getElementById('place').value;
         var total_time = document.getElementById('total_time').value;
         var take = document.getElementById('take').value;
-        var pay = total_time * 6030;
+        var hourly_wage = document.getElementById('hourly_wage').value;
+        var pay = total_time * hourly_wage;
         var total_pay = pay - take;
-        var text = '제 이름은 name입니다.' +
-            '저는 place에서 start부터 end까지 일을 했습니다. ' +
-            '총 total_time시간을 일했으며 최저 임금이 6,030원이므로 pay원을 받야아 합니다. ' +
-            '그런데 제가 받은 액수는 총 take원입니다. ' +
-            '따라서 total_pay원을 place(으)로부터 받을 수 있도록 선처해주세요.';
+
+        hourly_wage = numberWithCommas(hourly_wage);
+        pay = numberWithCommas(pay);
+        take = numberWithCommas(take);
+        total_pay = numberWithCommas(total_pay);
+
+        var text = '제 이름은 name입니다.\n' +
+            '저는 place에서 start부터 end까지 일을 했습니다. \n' +
+            '전체 total_time시간을 일했으며 약속한 시급은 hourly_wage원이므로, 총 pay원을 받아야 합니다. \n' +
+            '그런데 제가 받은 액수는 take원입니다.\n' +
+            '따라서 total_pay원을 place(으)로부터 받을 수 있도록 선처해주세요.\n';
         text = text.replace(/start/g, start);
         text = text.replace(/end/g, end);
         text = text.replace(/name/g, name);
         text = text.replace(/place/g, place);
         text = text.replace(/total_time/g, total_time);
         text = text.replace(/take/g, take);
+        text = text.replace(/hourly_wage/g, hourly_wage);
         text = text.replace(/total_pay/g, total_pay);
         text = text.replace(/pay/g, pay);
 

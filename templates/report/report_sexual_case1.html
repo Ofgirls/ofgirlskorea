@@ -2,37 +2,39 @@
 
 {% block content %}
 <form class="form" onsubmit='return false;'>
-    <h1>성희롱, 성추행 피해 신고 - 사업주</h1>
+  <div class="form-box">
+    <div class="form_title">
+      <h1>성희롱, 성추행 피해 신고 - 사업주</h1>
+    </div>
 
     {{ attacker }}은(는) 저에게
-    <div class="validation">
-      <div class="checkbox">
-        <label class="checkbox-inline"><input type="checkbox" name="speech" value="말">말</label>
-        <label class="checkbox-inline"><input type="checkbox" name="motion" value="행동">행동</label>
-        <label class="checkbox-inline"><input type="checkbox" name="call" value="전화">전화</label>
-        <label class="checkbox-inline"><input type="checkbox" name="message" value="문자">문자</label>
-        <label class="checkbox-inline"><input type="checkbox" name="etccheck" value="기타">기타 :</label>
-        <input type='text' class='form-control' style='width: 200px; display: inline-block;' name="etc" id="etc" type="text" placeholder="기타 내용">
+    <div class="form-content">
+      <div class="validation">
+        <div class="checkbox">
+          <label class="checkbox-inline"><input type="checkbox" name="speech" value="말">말</label>
+          <label class="checkbox-inline"><input type="checkbox" name="motion" value="행동">행동</label>
+          <label class="checkbox-inline"><input type="checkbox" name="call" value="전화">전화</label>
+          <label class="checkbox-inline"><input type="checkbox" name="message" value="문자">문자</label>
+          <label class="checkbox-inline"><input type="checkbox" name="etccheck" value="기타">기타 :</label>
+          <input type='text' class='form-control' style='width: 200px; display: inline-block;' name="etc" id="etc" type="text" placeholder="기타 내용">
+        </div>
       </div>
+      로 성희롱을 했으며,
     </div>
-    로 성희롱을 했으며,
 
-    저는 거부의사 표현을
-    <div class="validation">
-      <div class="radio">
-        <label><input type="radio" name="optradio1" id="case1.1" value="했습니다. ">했습니다. </label>
-        <label><input type="radio" name="optradio1" id="case1.2" value="하지 못했습니다. "> 하지 못했습니다. </label>
+    <div class="form-content">
+      저는 거부의사 표현을
+      <div class="validation">
+        <div class="radio">
+          <label><input type="radio" name="optradio1" id="case1.1" value="했습니다. ">했습니다. </label>
+          <label><input type="radio" name="optradio1" id="case1.2" value="하지 못했습니다. "> 하지 못했습니다. </label>
+        </div>
       </div>
     </div>
-    거부하면 {{ attacker }}이(가)
-    <div class="validation">
-      <input class="form-control" id="penalty" type="text" placeholder="불이익" data-msg-required='내용을 작성해주세요.' required>
-    </div>
-    을
-    <div class="validation">
-      <div class="radio">
-        <label><input type="radio" name="optradio2" id="case2.1" value="줄 것 같았기 때문입니다. ">줄 것 같았기 때문입니다.</label>
-        <label><input type="radio" name="optradio2" id="case2.2" value="줄 거라고 직접 말했기 때문입니다. ">줄 거라고 직접 말했기 때문입니다.</label>
+    거부의사를 표현하지 못한 이유는 다음과 같습니다.
+    <div class="form-content">
+      <div class="validation">
+        <input class="form-control" id="penalty" type="text" placeholder="불이익 내용" data-msg-required='내용을 작성해주세요.' required>
       </div>
     </div>
 
@@ -41,7 +43,8 @@
       필요한 증거자료(화면 캡처, 녹음 등)는 미리 저장해두시고, 도움이 필요할 경우 아래의 상담소와 상담을 진행하시길 바랍니다.<br>
       여러분의 신상은 공개되지 않으며 부당한 대우에 대응하기 위한 조언과 신고 절차를 함께해줍니다.
     </div>
-    <button type="button" class="btn btn-default" onclick='report_etc()'>타임라인 작성하기</button>
+  </div>
+  <button type="button" class="btn btn-default col-xs-4 col-xs-offset-4" onclick='report_etc()'>타임라인 작성하기</button>
 </form>
 
 <script>
@@ -72,16 +75,10 @@
         },
         optradio1: {
             required: true,
-        },
-        optradio2: {
-            required: true,
         }
     },
     messages: {
       optradio1: {
-        required: '선택하지 않으셨습니다.'
-      },
-      optradio2: {
         required: '선택하지 않으셨습니다.'
       }
     },
@@ -133,17 +130,13 @@
     } else if(document.getElementById("case1.2").checked) {
       text += document.getElementById("case1.2").value;
     }
-    text += "거부하면 attacker이(가) penalty을(를)";
-    if (document.getElementById("case2.1").checked) {
-      text += document.getElementById("case2.1").value;
-    } else if(document.getElementById("case2.2").checked) {
-      text += document.getElementById("case2.2").value;
-    }
+    text += "거부하지 못한 이유는 다음과 같습니다.\n" + "penalty\n";
 
     var attacker = Cookies.get('attacker');
     var penalty = document.getElementById("penalty").value;
     text = text.replace(/attacker/g, attacker);
     text = text.replace(/penalty/g, penalty);
+
     Cookies.set("text_case1", text);
     Cookies.set("case","case1");
   }

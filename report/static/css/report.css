@@ -1,14 +1,11 @@
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
 .navbar-ofgirls {
-  /* border-bottom-width: 2px; */
   border-radius : 0px;
-  /* height: 40px; */
   background-color: #fff;
 }
 
 .navbar-ofgirls .navbar-brand {
-  /* background-image: url('./srcs/logo.png'); */
   background-size: cover;
   width: 170px;
   height: 99px;
@@ -42,7 +39,7 @@
   }
 }
 
-/*tablet*/
+/* tablet */
 @media screen and (min-width: 768px) {
   .navbar-ofgirls .navbar-brand,
   .navbar-ofgirls .navbar-nav li > a {
@@ -52,7 +49,7 @@
   }
   .container {
     width : 900px;
-    /*js added font-family_17.10.03*/
+    /* js added font-family_17.10.03 */
     font-family : 'Noto Sans KR', sans-serif;
   }
   .info{
@@ -68,17 +65,12 @@
     padding-top : 12px;
     font-size : 14px;
   }
+  input[type=text] {
+    font-size: 12px;
+    width: 250px !important;;
+  }
 }
 /*.info관련 : contents내 글자들이 화면 크기에 따라 바뀜_17.10.03 */
-
-input[type=text] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: none;
-    border-bottom: 2px solid #A561CE;
-}
 
 #phrase{
   text-align : center;
@@ -90,4 +82,57 @@ input[type=text] {
   font-size : 18px;
   text-align : center;
   padding-top : 75px;
+}
+
+/* form theme */
+.form_title {
+  margin-bottom: 50px;
+  padding: 1em 0 2em;
+  text-align: center;
+  border-bottom: 1px solid #D6D5D5;
+}
+
+input[type=text] {
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid #A561CE;
+    width : 300px;
+    /* background-color: transparent; */
+}
+input[type=checkbox], input[type=radio] {
+    margin: 8px 0 0;
+}
+
+.validation {
+  vertical-align: top;
+  display: inline-block;
+}
+
+.form-content {
+  display: table;
+  font-size : 14px;
+  line-height: 28px;
+  margin: 2em 0;
+}
+
+.form-box {
+  background: white;
+  border: 20px solid #D6D5D5;
+  padding: 20px;
+  width: 90%;
+  margin: 20px auto;
+}
+
+.radio {
+  margin: auto;
+  margin-left: 5px;
+}
+
+.radio label {
+  margin-right: 10px;
+}
+
+.checkbox {
+  margin: 0 5px;
 }
