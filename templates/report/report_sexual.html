@@ -9,7 +9,7 @@
     <div class="form-content">
       제 이름은
       <div class="validation">
-        <input class="form-control" name="name" id="name" type="text" placeholder="이름" data-msg-required='이름을 작성해주세요.' required>
+        <input class="form-control input-short" name="name" id="name" type="text" placeholder="이름" data-msg-required='이름을 작성해주세요.' required>
       </div>
       입니다.
     </div>
@@ -17,30 +17,36 @@
     <div class="form-content">
       저는
       <div class="validation">
-        <input class="form-control" name="place" id="place" type="text" placeholder="지역+가게이름 (ex.서울시 마포구 00편의점)" data-msg-required='상호명을 작성해주세요.' required>
+        <input class="form-control input-long" name="place" id="place" type="text" placeholder="지역+가게명 (ex.서울시 마포구 00편의점)" data-msg-required='상호명을 작성해주세요.' required>
       </div>
-      에서 아래 기간 동안 일했습니다.
+      에서 근무했습니다.
     </div>
+
     <div class="form-content">
+      근무 기간은
       <div class="validation">
-        <input type='text' class='form-control' name='daterange' required>
+        <input type='text' class='form-control input-mid' name='daterange' required>
       </div>
-    <div>
+      입니다.
+    </div>
 
     <div class="form-content">
       <div class="validation">
-        <input class="form-control" name="attacker" id="attacker" type="text" placeholder="가해자명 / 직위" data-msg-required='가해자를 작성해주세요.' required>
+        <input class="form-control input-short" name="attacker" id="attacker" type="text" placeholder="가해자명 / 직위" data-msg-required='가해자를 작성해주세요.' required>
       </div>
       이(가) 아래 날짜에 제게 성적수치심을 불러 일으켰습니다.
     </div>
     <div class="form-content">
+      사건 날짜 :
       <div class="validation">
-        <input type='text' class='form-control' name="date" required>
+        <input type='text' class='form-control input-short' name="date" required>
       </div>
     </div>
   </div>
-  <button type="button" class="btn btn-default col-md-3 col-md-offset-2" onclick='report_sexual_case1()'>사업주 신고하기</button>
-  <button type="button" class="btn btn-default col-md-3 col-md-offset-2" onclick='report_sexual_case2()'>직장동료/손님 신고하기</button>
+  <div class="btn-section">
+    <button type="button" class="btn btn-orange" onclick='report_sexual_case1()'>사업주 신고하기</button>
+    <button type="button" class="btn btn-orange" onclick='report_sexual_case2()'>직장동료/손님 신고하기</button>
+  </div>
 </form>
 
 <script>

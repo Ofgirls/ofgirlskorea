@@ -67,7 +67,20 @@
   }
   input[type=text] {
     font-size: 12px;
-    width: 250px !important;;
+    width: 100% !important;
+  }
+  .validation {
+    display: block !important;
+  }
+  .form-content {
+    width: 100%;
+  }
+  .form-box {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  .timeline-title {
+    padding: auto 20px;
   }
 }
 /*.info관련 : contents내 글자들이 화면 크기에 따라 바뀜_17.10.03 */
@@ -93,15 +106,23 @@
 }
 
 input[type=text] {
-    width: 100%;
-    box-sizing: border-box;
     border: none;
-    border-bottom: 2px solid #A561CE;
-    width : 300px;
-    /* background-color: transparent; */
+    border-bottom: 2px solid #ffb400;
 }
 input[type=checkbox], input[type=radio] {
     margin: 8px 0 0;
+}
+
+.input-short {
+  width: 150px;
+}
+
+.input-long {
+  width: 270px;
+}
+
+.input-mid {
+  width: 200px;
 }
 
 .validation {
@@ -113,13 +134,13 @@ input[type=checkbox], input[type=radio] {
   display: table;
   font-size : 14px;
   line-height: 28px;
-  margin: 2em 0;
+  margin: 50px 0;
 }
 
 .form-box {
   background: white;
   border: 20px solid #D6D5D5;
-  padding: 20px;
+  padding: 20px 50px;
   width: 90%;
   margin: 20px auto;
 }
@@ -135,4 +156,26 @@ input[type=checkbox], input[type=radio] {
 
 .checkbox {
   margin: 0 5px;
+}
+
+/* buttion design */
+.btn-section {
+  padding: 20px 0 31px;
+	text-align: center;
+	position: relative;
+  margin-bottom: 100px;
+}
+
+.btn-orange {
+  letter-spacing: 4px;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: #FFB400;
+  padding: 10px 30px;
+  color: #fff;
+  border: 2px solid #FFB400;
+  margin: 10px 20px;
+}
+.btn-orange:hover {
+  background-color: #fff;
 }

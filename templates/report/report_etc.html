@@ -24,7 +24,7 @@
         <div class="timeline-info"></div>
       <div class="timeline-marker"></div>
         <div class="timeline-content">
-            <h2 class="timeline-title"><input type='text' class='form-control' name=date></h2>
+            <h2 class="timeline-title"><input type='text' class='form-control input-lg input-short' name=date></h2>
         </div>
     </li>
 
@@ -42,10 +42,10 @@
       </div>
     </li>
   </ul>
+  <div class="btn-section">
+    <button type="button" class="btn btn-orange" onclick='report_result()'>확인하기</button>
+  </div>
 </div>
-
-<button type="button" class="btn btn-default col-xs-4 col-xs-offset-4" onclick='report_result()'>확인하기</button>
-
 
 <script>
     var format = 'YYYY년 M월 D일';
@@ -62,7 +62,6 @@
     });
 
     function remove_timeline(el) {
-      console.log(el);
       var item = el.parentNode.parentNode;
       item.remove();
     }
@@ -72,8 +71,6 @@
     function create_timeline() {
       var item = document.createElement('li');
       item.setAttribute('class', 'timeline-item');
-
-      console.log(item);
 
       var info = document.createElement('div');
       info.setAttribute('class', 'timeline-info');

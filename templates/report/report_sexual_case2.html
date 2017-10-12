@@ -19,7 +19,7 @@
     </div>
 
     <div class="form-content">
-      당시 {{ attacker }}은(는)
+      <div> 당시 {{ attacker }}은(는) </div>
       <div class="validation">
         <div class="checkbox">
           <label class="checkbox-inline"><input type="checkbox" name="speech" value="말">말</label>
@@ -48,9 +48,6 @@
         <input class="form-control" id="host" type="text" placeholder="사업주 명" data-msg-required="사업주의 이름을 입력해주세요." required>
       </div>
       은(는)
-    </div>
-
-    <div class="form-content">
       <div class="validation">
         <div class="radio">
           <label><input type="radio" name="optradio2" id="case2.1" value="함께 있었습니다. ">함께 있었습니다. </label>
@@ -88,8 +85,11 @@
       여러분의 신상은 공개되지 않으며 부당한 대우에 대응하기 위한 조언과 신고 절차를 함께해줍니다.
     </div>
   </div>
-  <button type="button" class="btn btn-default col-xs-4 col-xs-offset-4" onclick='report_etc()'>타임라인 작성하기</button>
+  <div class="btn-section">
+    <button type="button" class="btn btn-orange" onclick='report_etc()'>타임라인 작성하기</button>
+  </div>
 </form>
+
 <script>
   $('input[name=optradio2]').change(function(){
     if ($(this).is(':checked')) {

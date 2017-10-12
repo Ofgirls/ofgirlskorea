@@ -6,11 +6,11 @@
     <div class="form_title">
       <h1>최저임금 미준수 신고</h1>
     </div>
-    
+
     <div class="form-content">
       제 이름은
       <div class="validation">
-        <input class="form-control" name="name" id="name" type="text" placeholder="이름" data-msg-required='이름을 작성해주세요.' required>
+        <input class="form-control input-short" name="name" id="name" type="text" placeholder="이름" data-msg-required='이름을 작성해주세요.' required>
       </div>
       입니다.
     </div>
@@ -18,21 +18,24 @@
     <div class="form-content">
       저는
       <div class="validation">
-        <input class="form-control" name="place" id="place" type="text" placeholder="지역+가게이름 (ex.서울시 마포구 00편의점)" data-msg-required='상호명을 작성해주세요.' required>
+        <input class="form-control input-long" name="place" id="place" type="text" placeholder="지역+가게명 (ex.서울시 마포구 00편의점)" data-msg-required='상호명을 작성해주세요.' required>
       </div>
       에서 아래 기간 동안 일했습니다.
     </div>
     <div class="form-content">
-      <div class="validation" style="display: block;">
-        <input type='text' class='form-control' name='daterange' required>
+      근무 기간 :
+      <div class="validation">
+        <input type='text' class="form-control input-mid" name='daterange' required>
       </div>
-      (현재도 일하고 있다면, 오늘 날짜 또는 직전 급료일까지 기입)
+      <div style="font-style: italic;">
+        (현재도 일하고 있다면, 오늘 날짜 또는 직전 급료일까지 기입)
+      </div>
     </div>
 
     <div class="form-content">
       시간으로 따지면 총
       <div class="validation">
-        <input class="form-control" name='total_time' id="total_time" type="text" placeholder="총 일한 시간 (ex. 23시간 30분 -> 23.5)" number="true" data-msg-number='일한 시간은 숫자로만 작성해주세요.' data-msg-required='일한 시간을 작성해주세요.' required>
+        <input class="form-control input-long" name='total_time' id="total_time" type="text" placeholder="총 일한 시간 (ex. 23시간 30분 --> 23.5)" number="true" data-msg-number='일한 시간은 숫자로만 작성해주세요.' data-msg-required='일한 시간을 작성해주세요.' required>
       </div>
       시간을 일했습니다.
     </div>
@@ -40,7 +43,7 @@
     <div class="form-content">
       저는 시급을
       <div class="validation">
-        <input class="form-control" name="hourly_wage" id="hourly_wage" type="text" placeholder="계약서 상 시급 또는 사장님이 약속한 시급" digits="true" data-msg-digits='금액은 숫자로만 작성해주세요.' data-msg-required='금액을 작성해주세요.' required>
+        <input class="form-control input-long" name="hourly_wage" id="hourly_wage" type="text" placeholder="계약서 상 시급 또는 사장님이 약속한 시급" digits="true" data-msg-digits='금액은 숫자로만 작성해주세요.' data-msg-required='금액을 작성해주세요.' required>
       </div>
       원 받기로 했습니다.
     </div>
@@ -48,13 +51,13 @@
     <div class="form-content">
       그런데 제가 받은 액수는 총
       <div class="validation">
-        <input class="form-control" name="take" id="take" type="text" placeholder="받은 금액" digits="true" data-msg-digits='금액은 숫자로만 작성해주세요.' data-msg-required='금액을 작성해주세요.' required>
+        <input class="form-control input-short" name="take" id="take" type="text" placeholder="받은 금액" digits="true" data-msg-digits='금액은 숫자로만 작성해주세요.' data-msg-required='금액을 작성해주세요.' required>
       </div>
       원입니다.
     </div>
   </div>
-  <div style="margin: 30px 0;">
-    <input type="submit" class="btn btn-default col-xs-4 col-xs-offset-4" value="작성 완료"/>
+  <div class="btn-section">
+    <input type="submit" class="btn btn-orange" value="확인하기"/>
   </div>
 </form>
 

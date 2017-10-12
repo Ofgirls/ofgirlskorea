@@ -7,8 +7,8 @@
       <h1>성희롱, 성추행 피해 신고 - 사업주</h1>
     </div>
 
-    {{ attacker }}은(는) 저에게
     <div class="form-content">
+      <div>{{ attacker }}은(는) 저에게</div>
       <div class="validation">
         <div class="checkbox">
           <label class="checkbox-inline"><input type="checkbox" name="speech" value="말">말</label>
@@ -19,8 +19,9 @@
           <input type='text' class='form-control' style='width: 200px; display: inline-block;' name="etc" id="etc" type="text" placeholder="기타 내용">
         </div>
       </div>
-      로 성희롱을 했으며,
+      <div>로 성희롱을 했으며,</div>
     </div>
+
 
     <div class="form-content">
       저는 거부의사 표현을
@@ -31,9 +32,10 @@
         </div>
       </div>
     </div>
-    거부의사를 표현하지 못한 이유는 다음과 같습니다.
-    <div class="form-content">
-      <div class="validation">
+
+    <div class="form-content" style="width: 100%;">
+      거부의사를 표현하지 못한 이유는 다음과 같습니다.
+      <div class="validation" style="display: block;">
         <input class="form-control" id="penalty" type="text" placeholder="불이익 내용" data-msg-required='내용을 작성해주세요.' required>
       </div>
     </div>
@@ -44,7 +46,9 @@
       여러분의 신상은 공개되지 않으며 부당한 대우에 대응하기 위한 조언과 신고 절차를 함께해줍니다.
     </div>
   </div>
-  <button type="button" class="btn btn-default col-xs-4 col-xs-offset-4" onclick='report_etc()'>타임라인 작성하기</button>
+  <div class="btn-section">
+    <button type="button" class="btn btn-orange" onclick='report_etc()'>타임라인 작성하기</button>
+  </div>
 </form>
 
 <script>
