@@ -18,12 +18,20 @@
         {{ post.published_date }}
     </div>
     {% endif %}
-    <h3> 글쓴이: {{ post.writer }}</h3>
-    <h2>{{ post.title }}</h2>
+
+
+    {% if post.category %}
+    <div class="category">
+        <h2><a href="#">{{ post.category }}</a></h2>
+    </div>
+    {% endif %}
+
+
+    <h5>글쓴이: {{ post.writer }}</h5>
+    <h2><a href="#">{{ post.title }}</a></h2>
     <p>{{ post.text|linebreaksbr }}</p>
 </div>
-
-<hr>
+<hr/>
 <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>
 
 {% for comment in post.comments.all %}

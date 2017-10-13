@@ -1,18 +1,23 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-from .models import Post
+from .models import Post, Category
 from .forms import PostForm, CommentForm
 
 
 # Create your views here.
 def post_list(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
-    return render(request, 'bamboo/post_list.html', {'posts': posts})
+    posts = Post.objects.filter().order_by('-published_date')
+    categories = Category.objects.filter().order_by('name')
+    template_name = 'bamboo/post_list.html'
+    context_data = {'posts': posts, 'categories': categories}
+    return render(request, template_name, context_data)
 
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    return render(request, 'bamboo/post_detail.html', {'post': post})
+    template_name = 'bamboo/post_detail.html'
+    context_data = {'post': post, }
+    return render(request, template_name, context_data)
 
 
 def post_new(request):

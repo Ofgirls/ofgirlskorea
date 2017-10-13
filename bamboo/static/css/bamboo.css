@@ -70,10 +70,15 @@
 /*.info관련 : contents내 글자들이 화면 크기에 따라 바뀜_17.10.03 */
 
 /* 여기부터 추가적인 css */
-h2 a {
+h2 a{
     font-family : 'Noto Sans KR', sans-serif;
     color: #A561CE;
 }
+a{
+    font-family : 'Noto Sans KR', sans-serif;
+    color: #ffb400;
+}
+
 
 .date {
     color: #828282;

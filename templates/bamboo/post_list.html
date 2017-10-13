@@ -2,17 +2,25 @@
 
 {% block content %}
 
-    <a class="btn btn-default" href="{% url 'post_new' %}"><span class="glyphicon glyphicon-plus"></span></a>
-        {% for post in posts %}
-        <div class="post">
-            <div class="date">
-                {{ post.published_date }}
-            </div>
-            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-            <p>{{ post.text|linebreaksbr }}</p>
-
-            <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.comments.count }}</a>
-            <hr>
-        </div>
+<a class="btn btn-default" href="{% url 'post_new' %}"><span class="glyphicon glyphicon-plus"></span></a>
+<hr/>
+<div class="category">
+    {% for category in categories %}
+    <a href="#">{{ category.name }}&nbsp;&nbsp;</a>
     {% endfor %}
+</div>
+<hr/>
+
+{% for post in posts %}
+<div class="post">
+    <div class="date">
+        {{ post.published_date }}
+    </div>
+    <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+    <p>{{ post.text|linebreaksbr }}</p>
+
+    <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.comments.count }}</a>
+    <hr/>
+</div>
+{% endfor %}
 {% endblock %}
