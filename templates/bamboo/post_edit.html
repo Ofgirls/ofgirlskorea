@@ -2,7 +2,8 @@
 
 {% block content %}
     <h1>대숲, 이야기 좀 들어줘요</h1>
-    <form method="POST" class="post-form">
+<p><a href="{% url 'post_list' %}">목록으로 돌아가기</a></p>
+<form method="POST" class="post-form">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="save btn btn-default">저장</button>

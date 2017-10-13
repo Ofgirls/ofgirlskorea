@@ -3,6 +3,15 @@ from django.utils import timezone
 
 
 # Create your models here.
+class Category(models.Model):
+#    class Meta:
+#        ordering = ['name']
+    name = models.CharField(verbose_name=u'이름', max_length=50)
+
+    def __str__(self):
+        return self.name
+
+
 class Post(models.Model):
     # author = models.ForeignKey('auth.User')
     writer = models.CharField(max_length=100)
@@ -10,6 +19,7 @@ class Post(models.Model):
     text = models.TextField()
 #    created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
+    category = models.ForeignKey(Category, null=True, blank=True)
 
     def publish(self):
         self.published_date = timezone.now()
