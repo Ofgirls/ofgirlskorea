@@ -32,11 +32,13 @@
         </div>
       </div>
     </div>
-
-    <div class="form-content" style="width: 100%;">
-      거부의사를 표현하지 못한 이유는 다음과 같습니다.
-      <div class="validation" style="display: block;">
-        <input class="form-control" id="penalty" type="text" placeholder="불이익 내용" data-msg-required='내용을 작성해주세요.' required>
+    
+    <div class='hidden-layer' style='display: none;'>
+      <div class="form-content" style="width: 100%;">
+        거부의사를 표현하지 못한 이유는 다음과 같습니다.
+        <div class="validation" style="display: block;">
+          <input class="form-control" id="penalty" type="text" placeholder="불이익 내용" data-msg-required='내용을 작성해주세요.' required>
+        </div>
       </div>
     </div>
 
@@ -52,6 +54,15 @@
 </form>
 
 <script>
+  $('input[name=optradio1]').change(function(){
+    if ($(this).is(':checked')) {
+      if ($(this).attr('id') == 'case1.2') {
+        $('.hidden-layer').show();
+      } else {
+        $('.hidden-layer').hide();
+      }
+    }
+  });
   jQuery.validator.setDefaults({
     success: 'valid'
   })
