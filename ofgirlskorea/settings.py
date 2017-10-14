@@ -132,3 +132,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'bamboo', 'static'),
     os.path.join(BASE_DIR, 'report', 'static'),
 )
+
+# auth login redirection
+LOGIN_REDIRECT_URL = 'post_list'
+

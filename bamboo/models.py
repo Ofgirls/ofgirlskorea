@@ -13,7 +13,7 @@ class Category(models.Model):
 
 
 class Post(models.Model):
-    # author = models.ForeignKey('auth.User')
+    # author = models.ForeignKey('auth.User', null=True)
     writer = models.CharField(max_length=100)
     title = models.CharField(max_length=200)
     text = models.TextField()
@@ -46,3 +46,12 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.text
+
+"""
+class User(models.Model):
+    # user_id = models.CharField(max_length=20)
+    user_password = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.user_id
+"""

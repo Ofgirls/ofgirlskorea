@@ -13,13 +13,15 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import include, url
+from django.conf.urls import url
 from django.contrib import admin
-# from django.conf import settings
+from django.contrib.auth import views as auth_views
+from django.conf import settings
 # from django.conf.urls.static import static
 
 import report.views
 import bamboo.views
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -32,6 +34,10 @@ urlpatterns = [
     url(r'^report/wage/$', report.views.report_wage, name='report_wage'),
     url(r'^report/etc/$', report.views.report_etc, name='report_etc'),
     url(r'^report/result/$', report.views.report_result, name='report_result'),
+    # url(r'^bamboo/$', bamboo.views.bamboo_home, name='bamboo_home'),
+    # url(r'^bamboo/login', auth_views.login, {'template_name': 'bamboo/bamboo_login.html'}, name='bamboo_login'),
+    # url(r'^bamboo/logout', auth_views.logout, {'template_name': 'bamboo/bamboo_logout.html'}, name='bamboo_logout'),
+    # url(r'^bamboo/signup/$', bamboo.views.signup, name='bamboo_signup'),
     url(r'^bamboo/$', bamboo.views.post_list, name='post_list'),
     url(r'^bamboo/(?P<pk>\d+)/$', bamboo.views.post_detail, name='post_detail'),
     url(r'^bamboo/new/$', bamboo.views.post_new, name='post_new'),

@@ -1,0 +1,14 @@
+{% extends 'bamboo/base.html' %}
+
+{% block title %} Login {% endblock %}
+
+{% block content %}
+<h2> 대숲 입장을 위한 <a href="{% url 'bamboo_signup' %}">signup</a> 해주세요</h2>
+
+  <h2>Login</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+  </form>
+{% endblock %}

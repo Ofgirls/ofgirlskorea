@@ -1,4 +1,6 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
 from .models import Post, Category
 from .forms import PostForm, CommentForm
@@ -67,3 +69,23 @@ def add_comment_to_post(request, pk):
     else:
         form = CommentForm()
     return render(request, 'bamboo/add_comment_to_post.html', {'form': form})
+
+
+def bamboo_home(request):
+    return render(request, 'bamboo/bamboo_home.html')
+
+"""
+def signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('post_list')
+    else:
+        form = UserCreationForm()
+    return render(request, 'bamboo/bamboo_signup.html', {'form': form})
+"""
