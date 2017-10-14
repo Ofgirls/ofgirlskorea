@@ -4,8 +4,11 @@
 {% block content %}
 
   <div class="row" style="text-align : center; margin : 2em;">
-      <h2 style="padding : 10%"> 무슨 고민이 있으세요? </h2>
-          <div style ="margin : 30px; text-align:center">
+
+      <h2 class = "hidden-xs" style="padding : 10%"> 무슨 고민이 있으세요? </h2>
+      <h2 class = "hidden-sm hidden-md hidden-lg" style="padding : 10%"> 무슨 고민이<br> 있으세요? </h2>
+
+      <div style ="margin : 30px; text-align:center">
           <div class="col-xs-12 col-sm-4">
             <div class="btn-section-main">
               <img src="{% static 'srcs/money.png' %}" class="img-responsive" alt="error"/>
@@ -29,7 +32,7 @@
 
    <script>
    function to_report_wage() {
-     //Cent OS에 얹은 다음 rl을 다시 달아야 함
+     //Cent OS에 얹은 다음 url을 다시 달아야 함
      location.href = "/report/wage";
    }
    function to_report_sexual(){

@@ -201,3 +201,25 @@ input[type=checkbox], input[type=radio] {
 .bnt_purple{
   background-color: #fff;
 }
+
+/*about us 관련 클래스*/
+.about_person{
+  text-align : center;
+  font-size : 20px;
+  line-height: 150%;
+  padding : 2%;
+}
+.about_title{
+  font-weight : bold;
+  font-size : 36px;
+  margin : 2%;
+  color : #6A2D8F;
+  letter-spacing: 1px;
+}
+.about_paragraph{
+  font-size : 20px;
+  line-height: 150%;
+  letter-spacing : -1px;
+  margin : 1%;
+  padding : 2%;
+}
