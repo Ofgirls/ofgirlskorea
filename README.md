@@ -1,7 +1,8 @@
 # Of.girls
-🎀 소녀들이여 당당하게 일하자! **Of.girls**와 함께하세요! 🎀
 
-![Of.girls hompage main](screenshot.png)
+> 🎀 소녀들이여 당당하게 일하자! **Of.girls**와 함께하세요! 🎀 
+
+[![Of.girls hompage main](screenshot.png)](http://ofgirls.xyz)
 
 Of.girls 는 Opportunity for girls의 줄임말로써, 최저임금 미준수, 임금체불 등 
 부당한 근로 환경과 성범죄 위험에 노출되어 있는 여성 청소년들의 근로 처우 개선을 위한 플랫폼입니다.
