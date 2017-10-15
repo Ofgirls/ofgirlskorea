@@ -32,14 +32,15 @@
     var div = document.getElementById("textDiv");
     var case_number = Cookies.get("case");
     var text = "";
-
+    /* 기타 신고를 누른 경우가 아닌 경우 */
     if(case_number != "case3") {
       text = Cookies.get('text');
     }
+    /* 최저임금 미준수 신고가 아닌 경우 */
     if (case_number != "case0") {
-      if(case_number == "case1") {
+      if(case_number == "case1") { /* 성희롱 신고 - 사업주 */
         text += Cookies.get('text_case1');
-      } else if (case_number == "case2") {
+      } else if (case_number == "case2") { /* 성희롱 신고 - 직장동료/손님 */
         text += Cookies.get('text_case2');
       }
       text += Cookies.get('timeline');
