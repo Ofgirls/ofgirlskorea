@@ -217,7 +217,7 @@ input[type=checkbox], input[type=radio] {
   font-size : 36px;
   margin : 2%;
   color : #6A2D8F;
-  letter-spacing: 1px;
+  letter-spacing: -1px;
 }
 .about_paragraph{
   font-size : 20px;
