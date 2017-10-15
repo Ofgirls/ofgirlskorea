@@ -84,10 +84,13 @@
   }
   .btn-section-main > .btn-orange{
     font-size: 16px;
-    padding-left: 20px;
-    padding-right: 20px;
     margin: 0;
     margin-bottom: 20px;
+  }
+  .btn-orange {
+    width: 100%;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 }
 /*.info관련 : contents내 글자들이 화면 크기에 따라 바뀜_17.10.03 */
@@ -171,7 +174,7 @@ input[type=checkbox], input[type=radio] {
   padding: 20px 0 31px;
 	text-align: center;
 	position: relative;
-  margin-bottom: 100px;
+  margin: 10px 20px;
 }
 
 .btn-orange {
@@ -181,14 +184,14 @@ input[type=checkbox], input[type=radio] {
   background-color: #FFB400;
   padding: 10px 30px;
   color: #fff;
+  margin: 10px 10px;
   border: 2px solid #FFB400;
-  margin: 10px 20px;
 }
 .btn-orange:hover {
   background-color: #fff;
 }
 
-.btn_purple {
+.btn-purple {
   letter-spacing: 4px;
   font-weight: bold;
   font-size: 20px;
@@ -198,7 +201,7 @@ input[type=checkbox], input[type=radio] {
   border: 2px solid #6A2D8F;
   margin: 10px 20px;
 }
-.bnt_purple{
+.btn-purple:hover {
   background-color: #fff;
 }
 
