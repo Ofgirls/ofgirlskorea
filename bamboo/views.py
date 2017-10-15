@@ -94,8 +94,23 @@ def post_edit_check_password(request, pk):
                 return redirect('password_check', pk=post.pk)
     else:
         form = PasswordCheckForm()
-        return render(request, 'bamboo/post_password_check.html', {'form': form})
+        context_data = {'post': post, 'form': form, }
+        return render(request, 'bamboo/post_password_check.html', context_data)
 
+
+def post_remove_check_password(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == "POST":
+        form = PasswordCheckForm(request.POST)
+        if form.is_valid():
+            if form.cleaned_data['password'] == post.post_password:
+                return redirect('post_remove', pk=post.pk)
+            else:
+                return redirect('remove_check', pk=post.pk)
+    else:
+        form = PasswordCheckForm()
+        context_data = {'post': post, 'form': form, }
+        return render(request, 'bamboo/post_password_check.html', context_data)
 """
 def bamboo_home(request):
     return render(request, 'bamboo/bamboo_home.html')
