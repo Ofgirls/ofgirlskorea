@@ -227,6 +227,15 @@ input[type=checkbox], input[type=radio] {
   padding : 2%;
 }
 
+/*main page style*/
+.main_title{
+  font-weight : bold;
+  margin : 2%;
+  letter-spacing : -1px;
+  line-height: 200%;
+  text-align : center;
+  margin-bottom:2em;
+}
 
 /* Sticky footer styles
 -------------------------------------------------- */
