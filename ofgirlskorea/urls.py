@@ -22,7 +22,6 @@ from django.conf import settings
 import report.views
 import bamboo.views
 
-
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', report.views.index, name='report_main'),
@@ -39,6 +38,8 @@ urlpatterns = [
     # url(r'^bamboo/logout', auth_views.logout, {'template_name': 'bamboo/bamboo_logout.html'}, name='bamboo_logout'),
     # url(r'^bamboo/signup/$', bamboo.views.signup, name='bamboo_signup'),
     url(r'^bamboo/$', bamboo.views.post_list, name='post_list'),
+    # url(r'^bamboo/(?P<slug>[-\w]+)/$', bamboo.views.post_list_by_tag, name='post_list_by_tag'),
+    url(r'^bamboo/category/(?P<pk>\d+)/$', bamboo.views.post_list_by_tag, name='post_list_by_tag'),
     url(r'^bamboo/(?P<pk>\d+)/$', bamboo.views.post_detail, name='post_detail'),
     url(r'^bamboo/new/$', bamboo.views.post_new, name='post_new'),
     url(r'^bamboo/(?P<pk>\d+)/edit/$', bamboo.views.post_edit, name='post_edit'),

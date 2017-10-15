@@ -4,8 +4,9 @@ from .models import Category, Post, Comment
 
 # Register your models here.
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name']
-    list_editable = ['name']
+    prepopulated_fields = {'slug': ['name']}
+    list_display = ['id', 'name', 'slug']
+    list_editable = ['name', 'slug']
     search_fields = ['name']
     ordering = ['name']
 

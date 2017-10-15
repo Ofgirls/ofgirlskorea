@@ -1,0 +1,27 @@
+{% extends 'bamboo/base.html' %}
+
+{% block content %}
+
+<a class="btn btn-default" href="{% url 'post_new' %}"><span class="glyphicon glyphicon-plus"></span></a>
+<hr/>
+<div class="category">
+    <a href="{% url 'post_list' %}">#전체</a>&nbsp;&nbsp;
+    {% for category in categories %}
+    <a href="{% url 'post_list_by_tag' pk=category.pk %}">{{ category.name }}</a>&nbsp;&nbsp;
+    {% endfor %}
+</div>
+<hr/>
+
+{% for post in posts %}
+<div class="post" style="display:inline">
+    <div class="date">
+        {{ post.published_date }}
+    </div>
+    <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.category }}&nbsp;/&nbsp;{{ post.title }}</a></h2>
+    <p>{{ post.text|linebreaksbr }}</p>
+
+    <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.comments.count }}</a>
+    <hr/>
+</div>
+{% endfor %}
+{% endblock %}

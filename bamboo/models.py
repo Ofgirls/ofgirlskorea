@@ -7,6 +7,8 @@ class Category(models.Model):
 #    class Meta:
 #        ordering = ['name']
     name = models.CharField(verbose_name=u'이름', max_length=50)
+    slug = models.SlugField(unique=True, null=True, blank=True)
+    description = models.TextField(verbose_name=u'말머리 설명', blank=True)
 
     def __str__(self):
         return self.name
