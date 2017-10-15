@@ -9,7 +9,15 @@ def index(request):
 
 
 def about(request):
+    return render(request, 'report/info_about.html')
+
+
+def aboutus(request):
     return render(request, 'report/info_aboutus.html')
+
+
+def howto(request):
+    return render(request, 'report/info_howtouse.html')
 
 
 def report_list(request):
