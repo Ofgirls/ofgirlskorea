@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="post">
-    <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+    <a class="btn btn-default" href="{% url 'password_check' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
     <a class="btn btn-default" href="{% url 'post_list'%}"><span class="glyphicon glyphicon-list"></span></a>
     <a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}"><span
             class="glyphicon glyphicon-remove"></span></a>

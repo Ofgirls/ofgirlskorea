@@ -47,6 +47,7 @@ urlpatterns = [
     url(r'^bamboo/(?P<pk>\d+)/edit/$', bamboo.views.post_edit, name='post_edit'),
     url(r'^post/(?P<pk>\d+)/remove/$', bamboo.views.post_remove, name='post_remove'),
     url(r'^post/(?P<pk>\d+)/comment/$', bamboo.views.add_comment_to_post, name='add_comment_to_post'),
+    url(r'^bamboo/(?P<pk>\d+)/edit/check/$', bamboo.views.post_edit_check_password, name='password_check'),
 
 ]
 '''

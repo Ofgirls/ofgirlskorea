@@ -1,9 +1,11 @@
+from time import sleep
+
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
 from .models import Post, Category
-from .forms import PostForm, CommentForm
+from .forms import PostForm, CommentForm, PasswordCheckForm
 from django.http import Http404, HttpResponse
 from django.template import Context, loader
 
@@ -81,10 +83,23 @@ def add_comment_to_post(request, pk):
     return render(request, 'bamboo/add_comment_to_post.html', {'form': form})
 
 
+def post_edit_check_password(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == "POST":
+        form = PasswordCheckForm(request.POST)
+        if form.is_valid():
+            if form.cleaned_data['password'] == post.post_password:
+                return redirect('post_edit', pk=post.pk)
+            else:
+                return redirect('password_check', pk=post.pk)
+    else:
+        form = PasswordCheckForm()
+        return render(request, 'bamboo/post_password_check.html', {'form': form})
+
+"""
 def bamboo_home(request):
     return render(request, 'bamboo/bamboo_home.html')
 
-"""
 def signup(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
