@@ -32,7 +32,7 @@
         </div>
       </div>
     </div>
-    
+
     <div class='hidden-layer' style='display: none;'>
       <div class="form-content" style="width: 100%;">
         거부의사를 표현하지 못한 이유는 다음과 같습니다.
@@ -158,6 +158,7 @@
 
   function report_etc() {
     if (!$('form.form').valid()) {
+      alert('내용을 모두 올바르게 작성해주세요!');
       return false;
     }
     set_cookie();

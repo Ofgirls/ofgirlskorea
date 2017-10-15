@@ -95,6 +95,7 @@
     }
     function formsubmit() {
         if (!$('form.form').valid()) {
+          alert('내용을 모두 올바르게 작성해주세요!');
           return false;
         }
         var name = document.getElementById('name').value;
