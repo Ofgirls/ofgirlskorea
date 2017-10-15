@@ -17,31 +17,33 @@
 
 <body>
 <nav class="navbar navbar-default navbar-ofgirls">
-  <div class="container">
-    <div class="navbar-header">
-      <!-- mobile, tablet menu button -->
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
+    <div class="container">
+        <div class="navbar-header">
+            <!-- mobile, tablet menu button -->
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"
+                    aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
 
-      <a class="navbar-brand" href="/">Of.girls</a> <!-- logo image -->
-    </div>
+            <a class="navbar-brand" href="/">Of.girls</a> <!-- logo image -->
+        </div>
 
-    <div class="collapse navbar-collapse" id="navbar-collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="{% url 'info_about' %}">소개페이지</a></li>
-        <li><a href="{% url 'report_list' %}">신고하기</a></li>
-        <li><a href="/bamboo">대나무숲</a></li>
-      </ul>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'info_about' %}">소개</a></li>
+                <li><a href="{% url 'report_list' %}">신고하기</a></li>
+                <li><a href="{% url 'post_list' %}">대나무숲</a></li>
+                <li><a href="{% url 'info_howto' %}">도움말</a></li>
+            </ul>
+        </div>
     </div>
-  </div>
 </nav>
-  <div class="container">
+<div class="container">
     {% block content %}
     {% endblock %}
-  </div>
+</div>
 </body>
 </html>
