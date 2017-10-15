@@ -26,6 +26,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', report.views.index, name='report_main'),
     url(r'^about/$', report.views.about, name='info_about'),
+    url(r'^about/ofgirlskorea$', report.views.aboutus, name='info_aboutus'),
+    url(r'^howtouse/$', report.views.howto, name='info_howto'),
     url(r'^report/$', report.views.report_list, name='report_list'),
     url(r'^report/sexual/$', report.views.report_sexual, name='report_sexual'),
     url(r'^report/sexual/case1$', report.views.report_sexual_case1, name='report_sexual_case1'),
