@@ -2,43 +2,49 @@
 {% load staticfiles %}
 
 {% block content %}
-    <h1 class="phrase" style="margin-top:1em">_</h1>
-    <h1 class="phrase">어리다고 여자라고</h1>
-    <h1 class="phrase" style="margin-bottom:2em">참고 일하지 마세요</h1>
+<h3 class="phrase">_</h3>
+<h3 class="phrase">어리다고 여자라고</h3>
+<h3 class="phrase" style="margin-bottom:1em">참고 일하지 마세요</h3>
 
-    <h3 style="text-align:center">아르바이트를 하면서 당했던 부당한 대우들<br>
-  Of.girls가 여러분의 신고를 도와드립니다.</h3>
+<h4 style="text-align:center; margin-bottom:2em">아르바이트를 하면서 당했던 부당한 대우들,
+    어떻게 신고해야 할 지 모르겠다구요?<br>
+    Of.girls와 함께, 차근차근 써내려가요</h4>
 
-    <div style ="margin : 30px; text-align:center">
+<div style="margin : 30px; text-align:center;">
     <div class="col-xs-12 col-sm-4">
-      <div class="btn-section-main">
-        <button type="button" class="btn btn-orange" onclick="to_about_us()">Of.girls란?</button>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-4">
-      <div class="btn-section-main">
-        <button type="button" class="btn btn-orange" onclick="to_report_list()">지금 신고하기</button>
-      </div>
+        <div class="btn-section-main">
+            <img src="{% static 'srcs/money.png' %}" class="img-responsive" alt="error"/>
+            <button type="button" class="btn btn-orange" onclick='to_report_wage()'>임금 체불</button>
+        </div>
     </div>
     <div class="col-xs-12 col-sm-4">
-      <div class="btn-section-main">
-        <button type="button" class="btn btn-orange" onclick="to_bamboo_forest()">이야기 나누기</button>
-      </div>
+        <div class="btn-section-main">
+            <img src="{% static 'srcs/female.png' %}" class="img-responsive" alt="error"/>
+            <button type="button" class="btn btn-orange" onclick='to_report_sexual()'>성희롱 관련</button>
+        </div>
     </div>
+    <div class="col-xs-12 col-sm-4">
+        <div class="btn-section-main">
+            <img src="{% static 'srcs/plus.png' %}" class="img-responsive" alt="error"/>
+            <button type="button" class="btn btn-orange" onclick='to_report_etc()'>기타 신고</button>
+        </div>
     </div>
+</div>
+</div>
 
-    <script>
-   function to_about_us() {
-     //Cent OS에 얹은 다음 url을 다시 달아야 함
-     location.href = "/about";
-   }
-   function to_report_list(){
-     //Cent OS에 얹은 다음 url을 다시 달아야 함
-     location.href = "/report";
-   }
-   function to_bamboo_forest(){
-     //Cent OS에 얹은 다음 url을 다시 달아야 함
-     location.href = "/bamboo";
-   }
-   </script>
+<script>
+    function to_report_wage() {
+        //Cent OS에 얹은 다음 url을 다시 달아야 함
+        location.href = "/report/wage";
+    }
+    function to_report_sexual() {
+        //Cent OS에 얹은 다음 url을 다시 달아야 함
+        location.href = "/report/sexual";
+    }
+    function to_report_etc() {
+        Cookies.set("case", "case3");
+        //Cent OS에 얹은 다음 url을 다시 달아야 함
+        location.href = "./etc";
+    }
+</script>
 {% endblock %}
