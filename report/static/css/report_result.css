@@ -44,8 +44,8 @@
   line-height: 32px;
   font-size: 16px;
 }
-
-.section a {
+a.report {
+  text-align: center;
   display: inline-block;
   padding: 20px;
   margin-bottom: 40px;
@@ -60,15 +60,14 @@
   -webkit-transition: all 0.3s ease 0s;
 }
 
-.section a:hover {
+a.report:hover {
   background-color: #ffce00;
 }
 
-.section a:link, .section a:visited, .section a:link:hover, .section a:visited:hover {
+a.report:link, a.report:visited, a.report:link:hover, a.report:visited:hover {
   text-decoration: none;
   color: #fff;
 }
-
 @media (max-width: 500px) {
   .top-border {
     display: none;
