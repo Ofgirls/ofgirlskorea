@@ -21,7 +21,8 @@ class Post(models.Model):
     text = models.TextField()
 #    created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
-    category = models.ForeignKey(Category, null=True, blank=True)
+    category = models.ForeignKey(Category, default=1, blank=True)
+    post_password = models.CharField(verbose_name=u'password', max_length=100, default='', help_text="글을 수정하거나 지울 때 사용할 비밀번호를 적어주세요")
 
     def publish(self):
         self.published_date = timezone.now()

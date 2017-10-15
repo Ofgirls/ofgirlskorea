@@ -14,12 +14,12 @@ class CategoryAdmin(admin.ModelAdmin):
 class PostAdmin(admin.ModelAdmin):
     fieldsets = [
         (None, {'fields': ['published_date']}),
-        ('Post 내용', {'fields': ['writer', 'title', 'text']}),
+        ('Post 내용', {'fields': ['writer', 'title', 'text', 'post_password']}),
     ]
-    list_display = ('title', 'published_date', 'category')
+    list_display = ('title', 'published_date', 'category', 'post_password')
     list_display_links = ['title']
     list_filter = ['published_date', 'category']
-    list_editable = ['category']
+    list_editable = ['category',]
     search_fields = ['title', 'text', ]
     ordering = ['-published_date']
     # 좋아요 개수, --> 안되고,

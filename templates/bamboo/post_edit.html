@@ -1,11 +1,21 @@
 {% extends 'bamboo/base.html' %}
 
 {% block content %}
-    <h1>대숲, 이야기 좀 들어줘요</h1>
+<h1>대숲, 이야기 좀 들어줘요</h1>
 <p><a href="{% url 'post_list' %}">목록으로 돌아가기</a></p>
 <form method="POST" class="post-form">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">저장</button>
-    </form>
+    {% csrf_token %}
+
+    <button type="submit" class="save btn btn-default">저장</button>
+
+    {% for field in form %}
+    <div class="fieldWrapper">
+        {{ field.errors }}
+        {{ field.label_tag }} {{ field }}
+        {% if field.help_text %}
+        <p class="help">{{ field.help_text|safe }}</p>
+        {% endif %}
+    </div>
+    {% endfor %}
+</form>
 {% endblock %}
