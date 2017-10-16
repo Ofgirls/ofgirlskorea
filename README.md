@@ -24,6 +24,39 @@ Of.girls 는 Opportunity for girls의 줄임말로써, 최저임금 미준수, �
 **[대나무숲]** 에 가시면 그동안 말하지 못한 이야기들을 익명으로 나눌 수 있습니다.
 
 
+## Prerequirements
+
+* mysql 5.7 이상
+
+## How to installation for Localhost
+1. ZIP 파일을 다운로드 받습니다.
+
+2. python 모듈 의존성을 다음과 같이 모두 설치해줍니다.
+```
+pip3 install -r requirements.txt
+```
+(이 때, ofgirlskorea>setting.py의 database 설정에 맞춰 DB를 생성해줍니다.)
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'Ofgirlskorea',
+	'USER': 'root',
+	'PASSWORD': 'Ofgirlskorea!',
+	'HOST': 'localhost',
+	'PORT': '3306',
+    }
+}
+```
+
+3. ofgirlskorea 디렉토리에서 다음을 수행합니다.
+```python
+python manage.py runserver
+```
+
+4. 로컬호스트에서 홈페이지 결과를 확인합니다.
+> 127.0.0.1:8000
+
 ## Copyright of image and plugin
 * 버튼 아이콘 이미지 : [bootstrap Glyphicon](http://glyphicons.com/)
 
