@@ -1,13 +1,7 @@
-from time import sleep
-
-from django.contrib.auth import login, authenticate
-from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
 from .models import Post, Category
 from .forms import PostForm, CommentForm, PasswordCheckForm
-from django.http import Http404, HttpResponse
-from django.template import Context, loader
 
 
 # Create your views here.
@@ -111,21 +105,4 @@ def post_remove_check_password(request, pk):
         form = PasswordCheckForm()
         context_data = {'post': post, 'form': form, }
         return render(request, 'bamboo/post_password_check.html', context_data)
-"""
-def bamboo_home(request):
-    return render(request, 'bamboo/bamboo_home.html')
 
-def signup(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
-            login(request, user)
-            return redirect('post_list')
-    else:
-        form = UserCreationForm()
-    return render(request, 'bamboo/bamboo_signup.html', {'form': form})
-"""
