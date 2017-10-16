@@ -211,7 +211,6 @@ input[type=checkbox], input[type=radio] {
   font-size : 20px;
   line-height: 150%;
   padding : 2%;
-
 }
 .about_title{
   font-weight : bold;
@@ -226,6 +225,13 @@ input[type=checkbox], input[type=radio] {
   letter-spacing : -1px;
   margin : 1%;
   padding : 2%;
+}
+.about-text {
+  font-size: 16px;
+  text-align: center !important;
+}
+.about-text > img {
+  width: 100%;
 }
 
 /*main page style*/
