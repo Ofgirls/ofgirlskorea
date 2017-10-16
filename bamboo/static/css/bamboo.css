@@ -93,14 +93,16 @@ a{
 }
 
 
-input[type=text] {
-    width: 100%;
+input[type=text], input[type=password], #id_text {
+    width: 100% !important;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
     border: none;
     border-bottom: 2px solid #A561CE;
 }
+
+
 
 #phrase{
   text-align : center;
