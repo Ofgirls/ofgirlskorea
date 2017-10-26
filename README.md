@@ -28,7 +28,7 @@ Of.girls 는 Opportunity for girls의 줄임말로써, 최저임금 미준수, �
 
 * mysql 5.7 이상
 
-## How to installation for Localhost
+## How to install for Localhost
 1. ZIP 파일을 다운로드 받습니다.
 
 2. python 모듈 의존성을 다음과 같이 모두 설치해줍니다.
